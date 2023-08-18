@@ -1,0 +1,22 @@
+corgi.wiki {
+	redir https://www.corgi.wiki
+}
+
+www.corgi.wiki {
+	handle_path /* {
+		file_server /static/*
+	}
+	reverse_proxy localhost:8000
+}
+
+staging.corgi.wiki {
+	handle /static/* {
+		rewrite * /staging/{uri}
+		file_server
+	}
+	reverse_proxy localhost:8001
+}
+
+git.corgi.pink {
+	reverse_proxy localhost:3000
+}
