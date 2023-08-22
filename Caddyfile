@@ -20,3 +20,7 @@ staging.corgi.wiki {
 git.corgi.pink {
 	reverse_proxy localhost:3000
 }
+
+bäckerone.corgi.pink {
+	reverse_proxy localhost:5000
+}
