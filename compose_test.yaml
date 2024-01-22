@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+    reverse-proxy:
+        image: docker.io/library/caddy:alpine
+        container_name: caddy
+        network_mode: host
+        command: caddy run --config /etc/caddy/Caddyfile
+        #command: caddy reverse-proxy --from :80 --to http://localhost:8001
+        restart: always
+        volumes:
+          - ./Caddyfile:/etc/caddy/Caddyfile
+
+
+    #staging:
+     #   build: staging/
+      #  restart: always
+       # entrypoint: cd app&& python3 manage.py runserver
+        #ports:
+        #    - "8001:8000"
+        #volumes:
+         # - ./staging:/app
+
+    #prod:
+     #   build: prod/
+      #  restart: always
+       # entrypoint: cd app && python3 manage.py runserver
+       # ports:
+        #    - "8002:8000"
+        #volumes:
+         # - ./prod:/app

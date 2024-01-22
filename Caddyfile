@@ -3,24 +3,13 @@ corgi.wiki {
 }
 
 www.corgi.wiki {
-	handle_path /* {
-		file_server /static/*
-	}
 	reverse_proxy localhost:8000
 }
 
 staging.corgi.wiki {
-	handle /static/* {
-		rewrite * /staging/{uri}
-		file_server
-	}
-	reverse_proxy localhost:8001
+	reverse_proxy localhost:8018
 }
 
-git.corgi.pink {
-	reverse_proxy localhost:3000
-}
-
-bäckerone.corgi.pink {
-	reverse_proxy localhost:5000
+backups.corgi.wiki {
+	reverse_proxy localhost:7001
 }
