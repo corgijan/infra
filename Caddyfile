@@ -11,5 +11,5 @@ staging.corgi.wiki {
 }
 
 backups.corgi.wiki {
-	reverse_proxy localhost:7001
+	reverse_proxy localhost:7000
 }
