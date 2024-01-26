@@ -3,7 +3,7 @@ corgi.wiki {
 }
 
 www.corgi.wiki {
-	reverse_proxy localhost:8000
+	reverse_proxy localhost:8001
 }
 
 staging.corgi.wiki {
