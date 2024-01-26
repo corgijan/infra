@@ -10,7 +10,7 @@ services:
         restart: always
         volumes:
           - ./Caddyfile:/etc/caddy/Caddyfile
-          - index.html:/static/index.html
+          - ./index.html:/static/index.html
 
 
     #staging:
