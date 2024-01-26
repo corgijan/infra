@@ -3,7 +3,7 @@ corgi.wiki {
 }
 
 www.corgi.wiki {
-	reverse_proxy localhost:8001
+	reverse_proxy localhost:8000
 }
 
 staging.corgi.wiki {
@@ -11,5 +11,28 @@ staging.corgi.wiki {
 }
 
 backups.corgi.wiki {
-	reverse_proxy localhost:7000
+	reverse_proxy localhost:7001
 }
+
+git.corgi.pink {
+	reverse_proxy localhost:3000
+}
+
+bäckerone.corgi.pink {
+	reverse_proxy localhost:5000
+}
+
+rezepte.corgi.pink {
+	reverse_proxy localhost:5000
+}
+
+
+www.corgi.pink {
+  root * /static
+  file_server
+}
+
+test.corgi.pink {
+	reverse_proxy localhost:4999
+}
+
