@@ -12,7 +12,7 @@ Meine Projekte:
 <p>Ich liebe Corgis (daher die Domain) und betreibe 
 <a href="https://www.corgi.wiki">Corgi Wiki (Eine Corgi-Verwandschaftswebsite)</a>
 <a href="https://rezepte.corgi.pink"> Ein Rezepte-Blog (Code Golf, hat <250 Zeilen)</a> 
-und diverse andere kleiner Projekte</p>
+und diverse andere kleine Projekte</p>
 <p> Meine Profile: 
 <a href="https://github.com/Iamjava">GitHub</a> 
 <a href="https://www.linkedin.com/in/jan-vaorin-a8b87629b/">LinkedIn</a>.</p>
