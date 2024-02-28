@@ -5,8 +5,7 @@
 
 Ich bin Masterand an der TU Dortmund und beschäftige mich mit Themen wie Cybersecurity, Cloud-Security, Datenbanken und DevSecOps / SSDLC.<br>
 Ich leite die Cybersecurity AG der TU Dortmund sowie die TU Software Architektur Community.<br>
-Zudem arbeite ich seit einigen Jahren als Softwareentwickler mit Fokus auf DevOps im IOT-Bereich
-und biete <a href="https://schulungen.corgi.pink"> Schulungen</a> zu diversen Themen auch extern an.
+Zudem arbeite ich seit einigen Jahren als Softwareentwickler mit Fokus auf DevOps im IOT-Bereich und biete <a href="https://schulungen.corgi.pink"> Schulungen</a> zu diversen Themen auch extern an.
 <br>
 
 Meine Projekte: 
