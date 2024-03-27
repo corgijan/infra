@@ -17,6 +17,7 @@
           - org.telegram.desktop
           - com.discordapp.Discord
           - com.spotify.Client
+          - com.mattjakeman.ExtensionManager
 
     - name: Install Flatpak packages
       loop: "{{ flatpak_packages }}"

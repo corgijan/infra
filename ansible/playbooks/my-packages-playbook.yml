@@ -10,3 +10,5 @@
       loop:
         - deja-dup
         - timeshift
+        - fish
+

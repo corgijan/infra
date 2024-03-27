@@ -9,6 +9,7 @@
         state: present
       loop:
         - docker
+        - nvim
 
     - name: Ensure Docker service is enabled and started
       service:

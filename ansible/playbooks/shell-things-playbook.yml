@@ -1,0 +1,51 @@
+---
+- name: Install shell
+  hosts: all
+  tasks:
+    - name: Install required packages
+      become: yes
+      dnf:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - fish
+
+    - name: Install omf when absent of fish user's home
+      become: yes
+      block:
+      - name: Get lastest omf from git 
+        git:
+          repo: 'https://github.com/oh-my-fish/oh-my-fish'
+          dest: '/tmp/omf'
+          clone: yes
+
+      - name: Installing omf for fish user
+        become: yes
+        command: /tmp/omf/bin/install -y --offline --noninteractive
+
+      - name: Cleanup omf install files
+        file:
+          path: '/tmp/omf'
+
+    - name: Install fisher when absent of fish user's home
+      block:
+      - name: Get lastest omf from git 
+        become: yes
+        git:
+          repo: 'https://github.com/jorgebucaran/fisher'
+          dest: '/tmp/fisher'
+          clone: yes
+
+      - name: Installing fisher for user
+        command: cp /tmp/fisher/functions/fisher.fish /home/{{ lookup('env', 'USER') }}/.config/fish/functions
+
+      - name: Cleanup omf install files
+        become: yes
+        file:
+          path: '/tmp/fisher'
+
+    - name: Install nvm
+      command: fish -c "fisher install jorgebucaran/nvm.fish" 
+
+    - name: Use agnoster theme
+      command: fish -c "omf install agnoster"
