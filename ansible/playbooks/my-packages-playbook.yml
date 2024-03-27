@@ -1,0 +1,12 @@
+---
+- name: Install Homecomputer Packages
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install required packages
+      dnf:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - deja-dup
+        - timeshift
