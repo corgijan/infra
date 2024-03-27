@@ -1,0 +1,40 @@
+---
+- name: Manage packages from JetBrains COPR repository
+  hosts: all
+  become: yes
+  tasks:
+    - name: Add JetBrains COPR repository
+      yum_repository:
+        name: jetbrains_copr
+        description: JetBrains COPR repository
+        baseurl: https://copr-be.cloud.fedoraproject.org/results/medzik/jetbrains/fedora-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}/ 
+        gpgcheck: no
+        enabled: yes
+
+    - name: Install required copr packages
+      dnf:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - clion
+        - pycharm-professional
+        - intellij-idea-ultimate
+
+- name: Add VSCode
+  hosts: all
+  become: yes
+  tasks:
+    - name: Add JetBrains COPR repository
+      yum_repository:
+        name: vscode_copr
+        description: Vscode COPR repository
+        baseurl: https://copr-be.cloud.fedoraproject.org/results/topazus/vscode//fedora-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}/ 
+        gpgcheck: no
+        enabled: yes
+
+    - name: Install required copr packages
+      dnf:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - vscode

@@ -1,0 +1,26 @@
+---
+- name: Install Flatpak packages
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install Flatpak package
+      package:
+        name: flatpak
+        state: present
+
+    - name: Add Flathub remote
+      command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+    - name: Define list of Flatpak packages
+      set_fact:
+        flatpak_packages:
+          - org.telegram.desktop
+          - com.discordapp.Discord
+          - com.spotify.Client
+
+    - name: Install Flatpak packages
+      loop: "{{ flatpak_packages }}"
+      command: flatpak install --assumeyes flathub {{ item }}
+
+    - name: Set Telegram permissions
+      command: flatpak override --filesystem=home org.telegram.desktop

@@ -1,0 +1,17 @@
+---
+- name: Install Docker 
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install required packages
+      dnf:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - docker
+
+    - name: Ensure Docker service is enabled and started
+      service:
+        name: docker
+        state: started
+        enabled: yes
