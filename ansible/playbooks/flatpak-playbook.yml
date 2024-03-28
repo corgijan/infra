@@ -4,6 +4,7 @@
   become: yes
   tasks:
     - name: Install Flatpak package
+      become: yes
       package:
         name: flatpak
         state: present

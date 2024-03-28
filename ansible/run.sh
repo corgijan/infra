@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo ansible-playbook -i inventory-local.yml flatpak-playbook.yml
+ansible-playbook -i inventory-local.yml flatpak-playbook.yml --ask-become-pass

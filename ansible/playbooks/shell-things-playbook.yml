@@ -2,13 +2,19 @@
 - name: Install shell
   hosts: all
   tasks:
-    - name: Install required packages
+    - name: Install Fish shell on macOS
       become: yes
-      dnf:
-        name: "{{ item }}"
+      when: "ansible_os_family == 'Darwin'"
+      ansible.builtin.homebrew:
+        name: fish
         state: present
-      loop:
-        - fish
+
+    - name: Install Fish shell on Fedora
+      become: yes
+      when: "ansible_os_family == 'RedHat'"
+      ansible.builtin.package:
+        name: fish
+        state: present
 
     - name: Install omf when absent of fish user's home
       become: yes
