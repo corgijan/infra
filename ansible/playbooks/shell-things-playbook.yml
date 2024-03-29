@@ -20,7 +20,6 @@
       command: mkdir -p  /home/{{ lookup('env', 'USER') }}/.config/fish/functions
 
     - name: Install omf when absent of fish user's home
-      become: yes
       block:
       - name: Get lastest omf from git 
         git:
@@ -29,7 +28,6 @@
           clone: yes
 
       - name: Installing omf for fish user
-        become: yes
         command: /tmp/omf/bin/install -y --offline --noninteractive
 
       - name: Cleanup omf install files
