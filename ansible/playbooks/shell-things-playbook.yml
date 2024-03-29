@@ -24,15 +24,15 @@
       - name: Get lastest omf from git 
         git:
           repo: 'https://github.com/oh-my-fish/oh-my-fish'
-          dest: '/tmp/omf'
+          dest: '/home/{{ lookup('env', 'USER') }}/omf'
           clone: yes
 
       - name: Installing omf for fish user
-        command: /tmp/omf/bin/install -y --offline --noninteractive
+        command: /home/{{ lookup('env', 'USER') }}/omf/bin/install -y --offline --noninteractive
 
       - name: Cleanup omf install files
         file:
-          path: '/tmp/omf'
+          path: '/home/{{ lookup('env', 'USER') }}/omf'
 
     - name: Install fisher when absent of fish user's home
       block:
