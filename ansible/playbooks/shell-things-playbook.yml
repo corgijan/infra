@@ -17,7 +17,7 @@
         state: present
 
     - name: Run fish once
-      command: fish help
+      command: fish --help
 
     - name: Install omf when absent of fish user's home
       become: yes
