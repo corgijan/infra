@@ -46,7 +46,7 @@
           clone: yes
 
       - name: Installing fisher for user
-        command: mkdir -p  /home/{{ lookup('env', 'USER') }}/.config/fish/functions &&cp /tmp/fisher/functions/fisher.fish /home/{{ lookup('env', 'USER') }}/.config/fish/functions
+        command: mkdir -p  /home/{{ lookup('env', 'USER') }}/.config/fish/functions &&cp /tmp/fisher/functions/fisher.fish /home/{{ lookup('env', 'USER') }}/.config/fish/functions/fisher.fish
 
       - name: Cleanup omf install files
         become: yes
