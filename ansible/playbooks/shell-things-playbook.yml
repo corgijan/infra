@@ -16,6 +16,9 @@
         name: fish
         state: present
 
+    - name: Run fish once
+      command: fish help
+
     - name: Install omf when absent of fish user's home
       become: yes
       block:
@@ -53,5 +56,5 @@
     - name: Install nvm
       command: fish -c "fisher install jorgebucaran/nvm.fish" 
 
-    - name: Use agnoster theme
+    - name: Install agnoster theme
       command: fish -c "omf install agnoster"

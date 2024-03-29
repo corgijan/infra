@@ -4,12 +4,13 @@
   become: yes
   tasks:
     - name: Install required packages
-      dnf:
+      ansible.builtin.package:
         name: "{{ item }}"
         state: present
       loop:
         - docker
-        - nvim
+        - podman
+        - neovim
 
     - name: Ensure Docker service is enabled and started
       service:
