@@ -1,17 +1,5 @@
 ---
 - name: Install Homecomputer Packages
-  hosts: all
-  become: yes
-  tasks:
-    - name: Install required packages
-      ansible.builtin.package:
-        name: "{{ item }}"
-        state: present
-      loop:
-        - deja-dup
-        - timeshift
-        - fish
-        - gstreamer1-plugins-good-*
-        - gstreamer1-plugins-bad-*
-        - gstreamer1-plugins-base
+  command: sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-plugin-libav --exclude=gstreamer1-plugins-bad-free-devel lame\* --exclude=lame-devel
+
 
