@@ -1,0 +1,17 @@
+---
+- name: Install Homecomputer Packages
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install required packages
+      ansible.builtin.package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - deja-dup
+        - timeshift
+        - fish
+        - gstreamer1-plugins-good-*
+        - gstreamer1-plugins-bad-*
+        - gstreamer1-plugins-base
+
