@@ -11,7 +11,7 @@
     - name: Download Toolbox tarball
       become: yes
       ansible.builtin.get_url:
-        url: "https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.2.3.20090.tar.gz"
+        url: "https://data.services.jetbrains.com/products/download?platform=linux&code=TBA"
         dest: "/tmp/jetbrains-toolbox.tar.gz"
     
     - name:  Remove files
