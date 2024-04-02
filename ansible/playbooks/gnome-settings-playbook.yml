@@ -2,9 +2,9 @@
 - name: Set GNOME settings for buttons and dark mode
   hosts: localhost
   tasks:
-    - name: Set button layout to 'close,minimize,maximize'
+    - name: Set button layout to 'close,minimize'
       ansible.builtin.command:
-        cmd: "gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'"
+        cmd: "gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize:'"
 
     - name: Set GTK theme to dark
       ansible.builtin.command:

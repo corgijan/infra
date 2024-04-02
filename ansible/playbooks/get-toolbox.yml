@@ -1,0 +1,54 @@
+---
+- name: Download JetBrains Toolbox tarball, extract it, and create a desktop shortcut
+  hosts: localhost
+  tasks:
+    - name: Install required package for desktop file creation
+      ansible.builtin.package:
+        name: gnome-panel
+        state: present
+      become: yes
+
+    - name: Download Toolbox tarball
+      become: yes
+      ansible.builtin.get_url:
+        url: "https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.2.3.20090.tar.gz"
+        dest: "/tmp/jetbrains-toolbox.tar.gz"
+    
+    - name:  Remove files
+      become: yes
+      ansible.builtin.command:
+        cmd: bash -c "rm -r /opt/jetbrains*"
+
+    - name: Extract tarball
+      become: yes
+      ansible.builtin.unarchive:
+        src: "/tmp/jetbrains-toolbox.tar.gz"
+        dest: "/opt"
+        remote_src: yes
+
+
+    - name: Rename extracted directory to jetbrains-toolbox
+      become: yes
+      ansible.builtin.command:
+        cmd: bash -c "mv /opt/jetbrains-toolbox-* /opt/jetbrains-toolbox"
+
+    - name: Make Toolbox script executable
+      become: yes
+      ansible.builtin.file:
+        path: "/opt/jetbrains-toolbox/jetbrains-toolbox"
+        mode: "+x"
+
+    - name: Create desktop entry file
+      become: yes
+      ansible.builtin.copy:
+        content: |
+          [Desktop Entry]
+          Version=1.0
+          Type=Application
+          Name=JetBrains Toolbox
+          Comment=Manage JetBrains tools and projects
+          Exec=/opt/jetbrains-toolbox/jetbrains-toolbox
+          Icon=/opt/jetbrains-toolbox/jetbrains-toolbox.png
+          Terminal=false
+          Categories=Development;IDE;
+        dest: "/usr/local/share/applications/jetbrains_toolbox.desktop"
