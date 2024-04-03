@@ -9,9 +9,11 @@
         state: present
       loop:
         - docker
+        - docker-compose
         - podman
         - neovim
         - flatpak-spawn
+        - trash-cli
 
     - name: Ensure Docker service is enabled and started
       service:
