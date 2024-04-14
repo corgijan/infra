@@ -12,8 +12,9 @@
         - docker-compose
         - podman
         - neovim
-        - flatpak-spawn
         - trash-cli
+        - openssl-devel
+
 
     - name: Ensure Docker service is enabled and started
       service:
