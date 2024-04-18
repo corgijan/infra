@@ -42,12 +42,12 @@ auth.corgi.pink {
 
 
 nut.corgi.pink {
-	reverse_proxy localhost:10001
+	redir https://nutritionist.corgi.pink
 }
 
 nutritionist.corgi.pink {
 	reverse_proxy localhost:10001
 }
 nutrition.corgi.pink {
-	reverse_proxy localhost:10001
+	redir https://nutritionist.corgi.pink
 }
