@@ -36,3 +36,8 @@ test.corgi.pink {
 	reverse_proxy localhost:4999
 }
 
+auth.corgi.pink {
+	reverse_proxy localhost:9000
+}
+
+
