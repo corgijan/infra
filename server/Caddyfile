@@ -56,7 +56,7 @@ test2.corgi.pink {
 test3.corgi.pink {
 	reverse_proxy localhost:4997
 }
-test3.corgi.pink {
+test4.corgi.pink {
 	reverse_proxy localhost:4996
 }
 
