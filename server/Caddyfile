@@ -21,7 +21,6 @@ git.corgi.pink {
 bäckerone.corgi.pink {
 	redir https://rezepte.corgi.pink
 }
-
 rezepte.corgi.pink {
 	reverse_proxy localhost:5000
 }
@@ -36,14 +35,6 @@ list.corgi.pink {
   root * /list
   file_server
 }
-test.corgi.pink {
-	reverse_proxy localhost:4999
-}
-
-auth.corgi.pink {
-	reverse_proxy localhost:9000
-}
-
 
 nutritionist.corgi.pink {
 	reverse_proxy localhost:10001
@@ -54,3 +45,22 @@ nut.corgi.pink {
 nutrition.corgi.pink {
 	redir https://nutritionist.corgi.pink
 }
+
+test.corgi.pink {
+	reverse_proxy localhost:4999
+}
+test2.corgi.pink {
+	reverse_proxy localhost:4998
+}
+
+test3.corgi.pink {
+	reverse_proxy localhost:4997
+}
+test3.corgi.pink {
+	reverse_proxy localhost:4996
+}
+
+auth.corgi.pink {
+	reverse_proxy localhost:9000
+}
+
