@@ -32,6 +32,10 @@ www.corgi.pink {
   file_server
 }
 
+list.corgi.pink {
+  root * /list
+  file_server
+}
 test.corgi.pink {
 	reverse_proxy localhost:4999
 }
@@ -41,12 +45,11 @@ auth.corgi.pink {
 }
 
 
-nut.corgi.pink {
-	redir https://nutritionist.corgi.pink
-}
-
 nutritionist.corgi.pink {
 	reverse_proxy localhost:10001
+}
+nut.corgi.pink {
+	redir https://nutritionist.corgi.pink
 }
 nutrition.corgi.pink {
 	redir https://nutritionist.corgi.pink
