@@ -19,7 +19,7 @@ git.corgi.pink {
 }
 
 bäckerone.corgi.pink {
-	reverse_proxy localhost:5000
+	redir https://rezepte.corgi.pink
 }
 
 rezepte.corgi.pink {
