@@ -5,18 +5,20 @@
 
 Ich bin Masterand an der TU Dortmund und beschäftige mich mit Themen wie Cybersecurity, Cloud-Security, Datenbanken und DevSecOps / SSDLC.<br>
 Ich leite die Cybersecurity AG der TU Dortmund sowie die TU Software Architektur Community.<br>
-Zudem arbeite ich seit einigen Jahren als Softwareentwickler mit Fokus auf DevOps im IOT-Bereich und biete <a href="https://www.corgi.pink/schulungen"> Schulungen</a> zu diversen Themen auch extern an.
+Zudem arbeite ich seit einigen Jahren als Softwareentwickler mit Fokus auf DevOps im IOT-Bereich und biete <a href="/schulungen.htm.html"> Schulungen</a> zu diversen Themen auch extern an.
 <br>
 
-Meine Projekte: 
-<p>Ich liebe Corgis (daher die Domain) und betreibe 
+<span id="a">jan@website</span>:<span id="b">~</span><span id="c">$</span><!-- kjsdfhkjdhsfkjdshfkj -->./projects
+Ich liebe Corgis (daher die Domain) und betreibe 
 <a href="https://www.corgi.wiki">Corgi Wiki (Eine Corgi-Verwandschaftswebsite)</a>
 <a href="https://rezepte.corgijan.dev"> Ein Rezepte-Blog (Code Golf, hat <250 Zeilen)</a> 
-und diverse andere kleine Projekte</p>
-<p> Meine Profile: 
+und diverse andere kleine Projekte <br>
+
+<span id="a">jan@website</span>:<span id="b">~</span><span id="c">$</span><!-- kjsdfhkjdhsfkjdshfkj -->./profiles --all
 <a href="https://github.com/corgijan">GitHub</a> 
 <a href="https://www.linkedin.com/in/jan-vaorin-a8b87629b/">LinkedIn</a>.</p>
 
+<span id="a">jan@website</span>:<span id="b">~</span><span id="c">$</span><!-- kjsdfhkjdhsfkjdshfkj -->./mail
 Per email bin ich unter jan.vaorin{at}gmail{dot}com zu erreichen
 
 <p>Cheers! </p>

@@ -2,14 +2,14 @@ var Typer = {
     text: '',
     accessCountimer: null,
     index: 0,
-    speed: 2,
+    speed: 5,
     file: '',
     accessCount: 0,
     deniedCount: 0,
     init: function () {
         accessCountimer = setInterval(function () {
             Typer.updLstChr();
-        }, 500);
+        }, 100);
         $.get(Typer.file, function (data) {
             Typer.text = data;
             Typer.text = Typer.text.slice(0, Typer.text.length - 1);
@@ -95,7 +95,7 @@ function replaceUrls(text) {
     }
 }
 
-Typer.speed = 3;
+Typer.speed = 12;
 Typer.file = 'CodeNerve.txt';
 Typer.init();
 
