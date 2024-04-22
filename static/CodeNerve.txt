@@ -20,7 +20,5 @@ und diverse andere kleine Projekte <br>
 
 <span id="a">jan@website</span>:<span id="b">~</span><span id="c">$</span><!-- kjsdfhkjdhsfkjdshfkj -->./mail
 Per email bin ich unter jan.vaorin{at}gmail{dot}com zu erreichen
-
-<p>Cheers! </p>
-<p><a href="https://www.corgi.wiki/impressum">Impressum</a> </p>
+<a href="https://www.corgi.wiki/impressum">Impressum</a>
 
