@@ -1,7 +1,6 @@
 <span id="a">jan@website</span>:<span id="b">~</span><span id="c">$</span> cd corgijan/website
-<span id="a">jan@website</span>:<span id="b">~</span><span id="c">$</span> cat <!-- kjsdfhkjdhsfkjdshfkj -->info.txt<br/>
-
-  Hallöchen, dies ist die persönliche Website von <span id="k">Jan Vaorin</span>. <!-- sjkfhskjf -->
+<span id="a">jan@website</span>:<span id="b">~</span><span id="c">$</span> cat <!-- kjsdfhkjdhsfkjdshfkj -->info.txt
+Hallöchen, dies ist die persönliche Website von <span id="k">Jan Vaorin</span>. <!-- sjkfhskjf -->
 
 Ich bin Masterand an der TU Dortmund und beschäftige mich mit Themen wie Cybersecurity, Cloud-Security, Datenbanken und DevSecOps / SSDLC.<br>
 Ich leite die Cybersecurity AG der TU Dortmund sowie die TU Software Architektur Community.<br>
