@@ -1,5 +1,5 @@
 <span id="a">jan@website</span>:<span id="b">~</span><span id="c">$</span> cd corgijan/website
-<span id="a">jan@website</span>:<span id="b">~</span><span id="c">$</span> cat <!-- kjsdfhkjdhsfkjdshfkj -->info.txt<br/><br/>
+<span id="a">jan@website</span>:<span id="b">~</span><span id="c">$</span> cat <!-- kjsdfhkjdhsfkjdshfkj -->info.txt<br/>
 
   Hallöchen, dies ist die persönliche Website von <span id="k">Jan Vaorin</span>. <!-- sjkfhskjf -->
 
