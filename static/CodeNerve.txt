@@ -11,10 +11,10 @@ Zudem arbeite ich seit einigen Jahren als Softwareentwickler mit Fokus auf DevOp
 Meine Projekte: 
 <p>Ich liebe Corgis (daher die Domain) und betreibe 
 <a href="https://www.corgi.wiki">Corgi Wiki (Eine Corgi-Verwandschaftswebsite)</a>
-<a href="https://rezepte.corgi.pink"> Ein Rezepte-Blog (Code Golf, hat <250 Zeilen)</a> 
+<a href="https://rezepte.corgijan.dev"> Ein Rezepte-Blog (Code Golf, hat <250 Zeilen)</a> 
 und diverse andere kleine Projekte</p>
 <p> Meine Profile: 
-<a href="https://github.com/Iamjava">GitHub</a> 
+<a href="https://github.com/corgijan">GitHub</a> 
 <a href="https://www.linkedin.com/in/jan-vaorin-a8b87629b/">LinkedIn</a>.</p>
 
 Per email bin ich unter jan.vaorin[ a t ]gmail[d o t]com zu erreichen

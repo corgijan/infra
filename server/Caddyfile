@@ -14,53 +14,53 @@ backups.corgi.wiki {
 	reverse_proxy localhost:7001
 }
 
-git.corgi.pink {
+git.corgijan.dev {
 	reverse_proxy localhost:3000
 }
 
-bäckerone.corgi.pink {
-	redir https://rezepte.corgi.pink
+bäckerone.corgijan.dev {
+	redir https://rezepte.corgijan.dev
 }
-rezepte.corgi.pink {
+rezepte.corgijan.dev {
 	reverse_proxy localhost:5000
 }
 
 
-www.corgi.pink {
+www.corgijan.dev {
   root * /static
   file_server
 }
 
-list.corgi.pink {
+list.corgijan.dev {
   root * /list
   file_server
 }
 
-nutritionist.corgi.pink {
+nutritionist.corgijan.dev {
 	reverse_proxy localhost:10001
 }
-nut.corgi.pink {
-	redir https://nutritionist.corgi.pink
+nut.corgijan.dev {
+	redir https://nutritionist.corgijan.dev
 }
-nutrition.corgi.pink {
-	redir https://nutritionist.corgi.pink
+nutrition.corgijan.dev {
+	redir https://nutritionist.corgijan.dev
 }
 
-test.corgi.pink {
+test.corgijan.dev {
 	reverse_proxy localhost:4999
 }
-test2.corgi.pink {
+test2.corgijan.dev {
 	reverse_proxy localhost:4998
 }
 
-test3.corgi.pink {
+test3.corgijan.dev {
 	reverse_proxy localhost:4997
 }
-test4.corgi.pink {
+test4.corgijan.dev {
 	reverse_proxy localhost:4996
 }
 
-auth.corgi.pink {
+auth.corgijan.dev {
 	reverse_proxy localhost:9000
 }
 
