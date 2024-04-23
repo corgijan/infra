@@ -12,6 +12,7 @@ services:
           - ./Caddyfile:/etc/caddy/Caddyfile
           - ./static:/static
           - ./list/index.html:/list/index.html
+          - ./caddy_data:/data
 
 
     #staging:
