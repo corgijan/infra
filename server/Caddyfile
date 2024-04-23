@@ -35,12 +35,7 @@ www.corgijan.dev {
   file_server
 }
 blog.corgijan.dev {
-  root * /blog/public
-  file_server
-}
-list.corgijan.dev {
-  root * /list
-  file_server
+	reverse_proxy localhost:11001
 }
 
 nutritionist.corgijan.dev {
