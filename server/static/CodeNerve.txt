@@ -8,10 +8,7 @@ Zudem arbeite ich seit einigen Jahren als Softwareentwickler mit Fokus auf DevOp
 <br>
 
 <span id="a">jan@website</span>:<span id="b">~</span><span id="c">$</span><!-- kjsdfhkjdhsfkjdshfkj -->./projects
-Ich liebe Corgis (daher die Domain) und betreibe 
-<a href="https://www.corgi.wiki">Corgi Wiki (Eine Corgi-Verwandschaftswebsite)</a>
-<a href="https://rezepte.corgijan.dev"> Ein Rezepte-Blog (Code Golf, hat <250 Zeilen)</a> 
-und diverse andere kleine Projekte <br>
+<a href="https://blog.corgijan.dev/porjects">Eine aktuelle liste</a>
 
 <span id="a">jan@website</span>:<span id="b">~</span><span id="c">$</span><!-- kjsdfhkjdhsfkjdshfkj -->./profiles --all
 <a href="https://github.com/corgijan">GitHub</a> 
