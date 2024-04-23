@@ -15,8 +15,6 @@ backups.corgi.wiki {
 }
 
 
-
-
 git.corgijan.dev {
 	reverse_proxy localhost:3000
 }
@@ -36,7 +34,10 @@ www.corgijan.dev {
   root * /static
   file_server
 }
-
+blog.corgijan.dev {
+  root * /blog/public
+  file_server
+}
 list.corgijan.dev {
   root * /list
   file_server
