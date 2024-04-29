@@ -3,6 +3,10 @@
   hosts: all
   become: yes
   tasks:
+    - name: Enable Coprs for updates
+      ansible.builtin.shell: |
+        sudo dnf copr enable medzik/jetbrains 
+        sudo dnf copr enablet opazus/vscode
     - name: Add JetBrains COPR repository
       yum_repository:
         name: jetbrains_copr
