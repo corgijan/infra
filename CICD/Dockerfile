@@ -1,14 +1,14 @@
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 RUN apt update
 # Install cron
-RUN apt -y install cron
+RUN apt -y install cron docker.io
 
 # Create the log file to be able to run tail
 RUN touch /var/log/cron.log
 RUN mkdir /scripts
 COPY ci.py /scripts
 # Setup cron job
-RUN (crontab -l ; echo "* * * * * python3 /scripts/ci.py >> /var/log/cron.log") | crontab
+RUN (crontab -l ; echo "* * * * * python3 -c 'print(123)' >> /var/log/cron.log") | crontab
 # Run the command on container startup
 ENTRYPOINT echo starting&&cron start&& tail -f /var/log/cron.log
