@@ -13,7 +13,7 @@ class Project:
 PROJECTS = [
     Project(
         name="blog",
-        path="/root/blog",
+        path="/blog",
         docker_compose_file="compose.yml"
     ),
 ]

@@ -1,0 +1,8 @@
+version: '3'
+services:
+  cron_job:
+    build: .
+    volumes:
+      - ./ci.py:/scripts/ci.py:z
+      - ~/blog:/blog:z
+
