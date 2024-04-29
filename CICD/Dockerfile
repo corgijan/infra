@@ -11,4 +11,4 @@ COPY ci.py /scripts
 # Setup cron job
 RUN (crontab -l ; echo "* * * * * python3 /scripts/ci.py >> /var/log/cron.log") | crontab
 # Run the command on container startup
-ENTRYPOINT cron start&& tail -f /var/log/cron.log
+ENTRYPOINT echo starting&&cron start&& tail -f /var/log/cron.log
