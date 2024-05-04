@@ -3,6 +3,7 @@ services:
   cron_job:
     build: .
     volumes:
-      - ./test.py:/scripts/ci.py:z
-      - ~/blog:/blog:z
+      - ./ci.py:/scripts/ci.py:z
+      - /home/jan/projects/blog:/blog:z
+      - /home/jan/.gitconfig:/root/.gitconfig
 

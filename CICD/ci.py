@@ -47,7 +47,13 @@ def restart_docker_compose(project):
     print(f"Restarting Docker Compose services for {project.name}...")
     subprocess.run(f"docker-compose -f {docker_compose_file} restart", shell=True)
 
+print("Running CICD")
 # Main
 for project in PROJECTS:
-    if check_remote_changes(project):
-        restart_docker_compose(project)
+
+    subprocess.run(f"git config --global --add safe.directory {project.path}", shell=True)
+    try:
+        if check_remote_changes(project):
+            restart_docker_compose(project)
+    except Exception as e:
+        print(e)

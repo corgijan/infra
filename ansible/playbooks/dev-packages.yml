@@ -16,6 +16,7 @@
         - openssl-devel
         - nodejs
         - npm 
+        - distrobox
 
 
     - name: Ensure Docker service is enabled and started
