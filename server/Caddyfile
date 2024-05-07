@@ -65,4 +65,7 @@ test4.corgijan.dev {
 auth.corgijan.dev {
 	reverse_proxy localhost:9000
 }
+schmfy.corgijan.dev {
+	reverse_proxy localhost:13001
+}
 
