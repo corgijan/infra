@@ -3,6 +3,6 @@ version: '3.8'
 
 services:
   schmfy:
-    image: registry.gitlab.fachschaften.org/skadic/schmfy_express
+    image: registry.gitlab.fachschaften.org/jan.vaorin/schmfy_express
     ports:
       - "13001:8000"
