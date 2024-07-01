@@ -13,7 +13,9 @@ staging.corgi.wiki {
 backups.corgi.wiki {
 	reverse_proxy localhost:7001
 }
-
+logs.corgi.wiki {
+	reverse_proxy localhost:14001
+}
 
 git.corgijan.dev {
 	reverse_proxy localhost:3000
