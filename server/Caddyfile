@@ -11,10 +11,31 @@ staging.corgi.wiki {
 }
 
 backups.corgi.wiki {
+	@robotsTxt {
+		path /robots.txt
+	}
+	handle @robotsTxt {
+		respond "User-agent: *\nDisallow: /" 200
+	}
 	reverse_proxy localhost:7001
 }
 logs.corgi.wiki {
+	@robotsTxt {
+		path /robots.txt
+	}
+	handle @robotsTxt {
+		respond "User-agent: *\nDisallow: /" 200
+	}
 	reverse_proxy localhost:14001
+}
+analytics.corgi.wiki {
+	@robotsTxt {
+		path /robots.txt
+	}
+	handle @robotsTxt {
+		respond "User-agent: *\nDisallow: /" 200
+	}
+	reverse_proxy localhost:15001
 }
 
 git.corgijan.dev {
