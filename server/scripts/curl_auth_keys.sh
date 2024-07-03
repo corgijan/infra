@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set variables
-RAW_URL="https://raw.githubusercontent.com/corgijan/infra/master/server/scripts/authorized_keys"  # Change to your raw file URL
+RAW_URL="https://raw.githubusercontent.com/corgijan/infra/master/server/scripts/authorized"  # Change to your raw file URL
 AUTHORIZED_KEYS_PATH="$HOME/.ssh/authorized_keys"
 
 # Ensure ~/.ssh directory exists
