@@ -14,14 +14,18 @@ services:
       - GITEA__database__PASSWD=gitea
       - SSH_LISTEN_PORT=22
       - SSH_PORT=222
+      - GITEA__admin__USER=admin  # Admin username
+      - GITEA__admin__PASSWORD=admin123  # Admin password
+      - GITEA__admin__EMAIL=admin@example.com  # Admin email
     restart: always
     volumes:
       - ./gitea:/data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
+        # first run without ini
       - ./conf/app.ini:/data/gitea/conf/app.ini 
-      - ./icon.svg:/data/gitea/public/img/logo.svg
-      - ./icon.svg:/data/gitea/public/img/favicon.svg
+      - ./icon.svg:/data/gitea/public/assets/img/logo.svg
+      - ./icon.svg:/data/gitea/public/assets/img/favicon.svg
       - ./templates:/data/gitea/templates
     ports:
       - "80:3000"
