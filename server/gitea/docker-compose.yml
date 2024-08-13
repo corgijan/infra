@@ -19,8 +19,11 @@ services:
       - ./gitea:/data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
+      - ./conf/app.ini:/data/gitea/conf/app.ini 
+      - ./icon.svg:/data/gitea/public/img/logo.svg
+      - ./icon.svg:/data/gitea/public/img/favicon.svg
     ports:
-      - "3000:3000"
+      - "80:3000"
       - "222:22"
     depends_on:
       - db
