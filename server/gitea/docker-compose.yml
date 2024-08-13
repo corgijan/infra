@@ -22,6 +22,7 @@ services:
       - ./conf/app.ini:/data/gitea/conf/app.ini 
       - ./icon.svg:/data/gitea/public/img/logo.svg
       - ./icon.svg:/data/gitea/public/img/favicon.svg
+      - ./templates:/data/gitea/templates
     ports:
       - "80:3000"
       - "222:22"
