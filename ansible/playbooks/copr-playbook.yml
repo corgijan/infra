@@ -1,44 +1,54 @@
 ---
-- name: Manage packages from JetBrains COPR repository
+- name: Manage JetBrains and VSCode packages via COPR repositories
   hosts: all
   become: yes
+
+  vars:
+    jetbrains_repo_name: "jetbrains_copr"
+    jetbrains_repo_description: "JetBrains COPR repository"
+    jetbrains_repo_baseurl: "https://copr-be.cloud.fedoraproject.org/results/medzik/jetbrains/fedora-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}/"
+
+    vscode_repo_name: "vscode_copr"
+    vscode_repo_description: "VSCode COPR repository"
+    vscode_repo_baseurl: "https://copr-be.cloud.fedoraproject.org/results/topazus/vscode/fedora-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}/"
+
+    jetbrains_packages:
+      - clion
+      - pycharm-professional
+      - intellij-idea-ultimate
+    vscode_packages:
+      - vscode
+
   tasks:
-    - name: Enable Coprs for updates
-      ansible.builtin.shell: |
-        sudo dnf copr enable medzik/jetbrains 
-        sudo dnf copr enablet opazus/vscode
+    - name: Enable JetBrains COPR repository
+      ansible.builtin.dnf:
+        name: dnf-plugins-core
+        state: present
+
     - name: Add JetBrains COPR repository
-      yum_repository:
-        name: jetbrains_copr
-        description: JetBrains COPR repository
-        baseurl: https://copr-be.cloud.fedoraproject.org/results/medzik/jetbrains/fedora-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}/ 
+      ansible.builtin.yum_repository:
+        name: "{{ jetbrains_repo_name }}"
+        description: "{{ jetbrains_repo_description }}"
+        baseurl: "{{ jetbrains_repo_baseurl }}"
         gpgcheck: no
         enabled: yes
 
-    - name: Install required copr packages
-      dnf:
+    - name: Install JetBrains packages
+      ansible.builtin.dnf:
         name: "{{ item }}"
         state: present
-      loop:
-        - clion
-        - pycharm-professional
-        - intellij-idea-ultimate
+      loop: "{{ jetbrains_packages }}"
 
-- name: Add VSCode
-  hosts: all
-  become: yes
-  tasks:
-    - name: Add JetBrains COPR repository
-      yum_repository:
-        name: vscode_copr
-        description: Vscode COPR repository
-        baseurl: https://copr-be.cloud.fedoraproject.org/results/topazus/vscode//fedora-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}/ 
+    - name: Add VSCode COPR repository
+      ansible.builtin.yum_repository:
+        name: "{{ vscode_repo_name }}"
+        description: "{{ vscode_repo_description }}"
+        baseurl: "{{ vscode_repo_baseurl }}"
         gpgcheck: no
         enabled: yes
 
-    - name: Install required copr packages
-      dnf:
+    - name: Install VSCode
+      ansible.builtin.dnf:
         name: "{{ item }}"
         state: present
-      loop:
-        - vscode
+      loop: "{{ vscode_packages }}"
