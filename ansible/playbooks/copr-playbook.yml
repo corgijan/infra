@@ -8,16 +8,13 @@
     jetbrains_repo_description: "JetBrains COPR repository"
     jetbrains_repo_baseurl: "https://copr-be.cloud.fedoraproject.org/results/medzik/jetbrains/fedora-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}/"
 
-    vscode_repo_name: "vscode_copr"
-    vscode_repo_description: "VSCode COPR repository"
-    vscode_repo_baseurl: "https://copr-be.cloud.fedoraproject.org/results/topazus/vscode/fedora-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}/"
-
     jetbrains_packages:
       - clion
       - pycharm-professional
       - intellij-idea-ultimate
-    vscode_packages:
-      - vscode
+    vscode_binary_url: "https://code.visualstudio.com/sha/download?build=stable&os=linux-x64"
+    vscode_binary_filename: "vscode-linux-x64-stable.tar.gz"
+    vscode_install_dir: "/usr/local/vscode"
 
   tasks:
     - name: Enable JetBrains COPR repository
@@ -39,16 +36,27 @@
         state: present
       loop: "{{ jetbrains_packages }}"
 
-    - name: Add VSCode COPR repository
-      ansible.builtin.yum_repository:
-        name: "{{ vscode_repo_name }}"
-        description: "{{ vscode_repo_description }}"
-        baseurl: "{{ vscode_repo_baseurl }}"
-        gpgcheck: no
-        enabled: yes
+    - name: Download VSCode binary
+      ansible.builtin.get_url:
+        url: "{{ vscode_binary_url }}"
+        dest: "/tmp/{{ vscode_binary_filename }}"
+        mode: '0644'
 
-    - name: Install VSCode
-      ansible.builtin.dnf:
-        name: "{{ item }}"
-        state: present
-      loop: "{{ vscode_packages }}"
+    - name: Create VSCode installation directory
+      ansible.builtin.file:
+        path: "{{ vscode_install_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Extract VSCode binary
+      ansible.builtin.unarchive:
+        src: "/tmp/{{ vscode_binary_filename }}"
+        dest: "{{ vscode_install_dir }}"
+        remote_src: yes
+        creates: "{{ vscode_install_dir }}/bin/code"
+
+    - name: Create symbolic link for VSCode binary
+      ansible.builtin.file:
+        src: "{{ vscode_install_dir }}/bin/code"
+        dest: "/usr/local/bin/code"
+        state: link
