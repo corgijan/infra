@@ -12,6 +12,7 @@
       - clion
       - pycharm-professional
       - intellij-idea-ultimate
+
     vscode_binary_url: "https://code.visualstudio.com/sha/download?build=stable&os=linux-x64"
     vscode_binary_filename: "vscode-linux-x64-stable.tar.gz"
     vscode_install_dir: "/usr/local/vscode"
@@ -57,6 +58,6 @@
 
     - name: Create symbolic link for VSCode binary
       ansible.builtin.file:
-        src: "{{ vscode_install_dir }}/bin/code"
+        src: "{{ vscode_install_dir }}/VSCode-linux-x64/bin/code"
         dest: "/usr/local/bin/code"
         state: link
