@@ -19,7 +19,6 @@
         - distrobox
         - thefuck
 
-
     - name: Ensure Docker service is enabled and started
       service:
         name: docker

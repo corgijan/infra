@@ -19,6 +19,7 @@
           - com.discordapp.Discord
           - com.spotify.Client
           - com.mattjakeman.ExtensionManager
+          - org.torproject.torbrowser-launcher
 
     - name: Install Flatpak packages
       loop: "{{ flatpak_packages }}"
