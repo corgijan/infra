@@ -18,6 +18,7 @@
         - npm 
         - distrobox
         - thefuck
+        - opentofu
 
     - name: Ensure Docker service is enabled and started
       service:

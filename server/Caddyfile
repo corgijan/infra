@@ -35,6 +35,7 @@ backups.corgi.wiki {
 	}
 	reverse_proxy localhost:7001
 }
+
 logs.corgi.wiki {
 	@robotsTxt {
 		path /robots.txt
@@ -67,6 +68,7 @@ git.corgijan.dev {
 bäckerone.corgijan.dev {
 	redir https://rezepte.corgijan.dev
 }
+
 rezepte.corgijan.dev {
 	reverse_proxy localhost:5000
 }
@@ -76,11 +78,10 @@ corgijan.dev {
 	redir https://www.corgijan.dev
 }
 www.corgijan.dev {
-  root * /static
-  file_server
+	reverse_proxy localhost:30001
 }
 blog.corgijan.dev {
-	reverse_proxy localhost:11001
+	reverse_proxy localhost:30001
 }
 
 nutritionist.corgijan.dev {
@@ -95,16 +96,6 @@ nutrition.corgijan.dev {
 
 test.corgijan.dev {
 	reverse_proxy localhost:4999
-}
-test2.corgijan.dev {
-	reverse_proxy localhost:4998
-}
-
-test3.corgijan.dev {
-	reverse_proxy localhost:4997
-}
-test4.corgijan.dev {
-	reverse_proxy localhost:4996
 }
 
 auth.corgijan.dev {
