@@ -111,3 +111,6 @@ schmfy.corgijan.dev {
 	reverse_proxy localhost:13001
 }
 
+vault.corgijan.dev {
+	reverse_proxy http://maine:31004
+}

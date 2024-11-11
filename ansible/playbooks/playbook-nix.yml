@@ -1,0 +1,26 @@
+---
+- name: Install Nix on Fedora
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Enable COPR repository for Nix
+      ansible.builtin.dnf:
+        name: "dnf-plugins-core"
+        state: present
+
+    - name: Enable petersen/nix COPR repo
+      ansible.builtin.command: "dnf copr enable -y petersen/nix"
+      args:
+        creates: "/etc/yum.repos.d/_copr_petersen-nix.repo"
+
+    - name: Install Nix
+      ansible.builtin.dnf:
+        name: "nix"
+        state: present
+
+    - name: Enable and start nix-daemon service
+      ansible.builtin.systemd:
+        name: nix-daemon
+        enabled: true
+        state: started
