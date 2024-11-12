@@ -116,6 +116,6 @@ vault.corgijan.dev {
 }
 
 vpn.corgijan.dev {
-	reverse_proxy /web* http://localhost:30003
-	reverse_proxy * http://headscale:30004
+	reverse_proxy /web* localhost:30003
+	reverse_proxy * localhost:30004
 }
