@@ -114,3 +114,8 @@ schmfy.corgijan.dev {
 vault.corgijan.dev {
 	reverse_proxy http://maine:31004
 }
+
+vpn.corgijan.dev {
+	reverse_proxy /web* http://localhost:30003
+	reverse_proxy * http://headscale:30004
+}
