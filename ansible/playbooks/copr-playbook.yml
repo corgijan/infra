@@ -4,14 +4,6 @@
   become: yes
 
   vars:
-    jetbrains_repo_name: "jetbrains_copr"
-    jetbrains_repo_description: "JetBrains COPR repository"
-    jetbrains_repo_baseurl: "https://copr-be.cloud.fedoraproject.org/results/medzik/jetbrains/fedora-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}/"
-
-    jetbrains_packages:
-      - clion
-      - pycharm-professional
-      - intellij-idea-ultimate
 
     vscode_binary_url: "https://code.visualstudio.com/sha/download?build=stable&os=linux-x64"
     vscode_binary_filename: "vscode-linux-x64-stable.tar.gz"
@@ -22,20 +14,6 @@
       ansible.builtin.dnf:
         name: dnf-plugins-core
         state: present
-
-    - name: Add JetBrains COPR repository
-      ansible.builtin.yum_repository:
-        name: "{{ jetbrains_repo_name }}"
-        description: "{{ jetbrains_repo_description }}"
-        baseurl: "{{ jetbrains_repo_baseurl }}"
-        gpgcheck: no
-        enabled: yes
-
-    - name: Install JetBrains packages
-      ansible.builtin.dnf:
-        name: "{{ item }}"
-        state: present
-      loop: "{{ jetbrains_packages }}"
 
     - name: Download VSCode binary
       ansible.builtin.get_url:

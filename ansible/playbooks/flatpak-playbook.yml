@@ -20,6 +20,7 @@
           - com.spotify.Client
           - com.mattjakeman.ExtensionManager
           - org.torproject.torbrowser-launcher
+          - org.gnome.World.PikaBackup
 
     - name: Install Flatpak packages
       loop: "{{ flatpak_packages }}"

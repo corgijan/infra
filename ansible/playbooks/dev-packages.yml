@@ -16,7 +16,6 @@
         - openssl-devel
         - nodejs
         - npm 
-        - distrobox
         - thefuck
         - opentofu
 
