@@ -98,6 +98,10 @@ test.corgijan.dev {
 	reverse_proxy localhost:4999
 }
 
+tischtennis.corgijan.dev {
+	reverse_proxy localhost:55000
+}
+
 auth.corgijan.dev {
 	@robotsTxt {
 		path /robots.txt
