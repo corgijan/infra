@@ -7,7 +7,7 @@ www.corgi.wiki {
 }
 
 cloud.corgijan.dev {
-		@blocked not remote_ip 1.2.3.4
+		@blocked not remote_ip 161.97.153.120
   	respond @blocked "<h1>Access Denied</h1>" 403
   	respond "allowed" 200
 }
