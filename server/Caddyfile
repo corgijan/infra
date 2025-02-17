@@ -3,6 +3,10 @@ corgi.wiki {
 }
 
 www.corgi.wiki {
+	reverse_proxy localhost:8001
+}
+
+cloud.corgijan.wiki {
     @allowed {
         remote_ip 161.97.153.120
     }
@@ -15,10 +19,6 @@ www.corgi.wiki {
     handle {
         respond "Access Denied." 403
     }
-}
-
-cloud.corgijan.dev {
-	reverse_proxy localhost:13377
 }
 
 verified.corgi.wiki {
