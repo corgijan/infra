@@ -4,12 +4,10 @@ corgi.wiki {
 
 www.corgi.wiki {
     @allowed {
-        remote_ip 161.0.0.1
+        remote_ip 161.97.153.120
     }
 
     handle @allowed {
-        # Allowed requests can be proxied, served static files, etc.
-        # Here we simply respond with a welcome message.
         respond "Welcome, your IP is allowed." 200
     }
 
