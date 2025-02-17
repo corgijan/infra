@@ -14,21 +14,13 @@ services:
           - ./list/index.html:/list/index.html
           - ./caddy_data:/data
 
-
-    #staging:
-     #   build: staging/
-      #  restart: always
-       # entrypoint: cd app&& python3 manage.py runserver
-        #ports:
-        #    - "8001:8000"
-        #volumes:
-         # - ./staging:/app
-
-    #prod:
-     #   build: prod/
-      #  restart: always
-       # entrypoint: cd app && python3 manage.py runserver
-       # ports:
-        #    - "8002:8000"
-        #volumes:
-         # - ./prod:/app
+    nginx:
+        image: nginx:alpine
+        container_name: nginx
+        ports:
+            - "127.0.0.1:13377:13377"
+            - "127.0.0.1:13378:13378"
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf:z
+        restart: always
+        network_mode: host
