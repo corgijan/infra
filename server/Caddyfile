@@ -9,7 +9,7 @@ www.corgi.wiki {
 cloud.corgijan.dev {
 	@denied not client_ip 100.115.146.24  100.109.136.60
 	abort @denied
-	reverse_proxy maine:31001
+	reverse_proxy maine:31002
 }
 
 verified.corgi.wiki {
