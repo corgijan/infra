@@ -6,7 +6,7 @@ www.corgi.wiki {
 	reverse_proxy localhost:8001
 }
 
-cloud.corgijan.wiki {
+cloud.corgijan.dev {
     @allowed {
         remote_ip 161.97.153.120
     }
