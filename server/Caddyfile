@@ -8,7 +8,7 @@ www.corgi.wiki {
 
 cloud.corgijan.dev {
 	templates
-	@denied client_ip 161.97.153.120/32
+	@denied not client_ip 100.115.146.24  100.109.136.60
 	abort @denied
 
 	respond "Hello, you must be from a private network! {{.RemoteIP}}"
