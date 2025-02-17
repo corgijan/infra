@@ -6,6 +6,10 @@ www.corgi.wiki {
 	reverse_proxy localhost:8001
 }
 
+cloud.corgijan.dev {
+	reverse_proxy localhost:13377
+}
+
 verified.corgi.wiki {
 	@robotsTxt {
 		path /robots.txt
