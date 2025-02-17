@@ -7,13 +7,11 @@ www.corgi.wiki {
 }
 
 cloud.corgijan.dev {
-		@teammember {
-        client_ip 161.97.153.120
-    }
-    handle @teammember {
-    		respond "allowed" 200
-    }
-    respond "<h1>You are attempting to access protected resources!</h1>" 403
+
+	@denied not client_ip 161.97.153.120
+	abort @denied
+
+	respond "Hello, you must be from a private network!"
 }
 
 verified.corgi.wiki {
