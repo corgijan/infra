@@ -3,7 +3,20 @@ corgi.wiki {
 }
 
 www.corgi.wiki {
-	reverse_proxy localhost:8001
+    @allowed {
+        remote_ip 161.0.0.1
+    }
+
+    handle @allowed {
+        # Allowed requests can be proxied, served static files, etc.
+        # Here we simply respond with a welcome message.
+        respond "Welcome, your IP is allowed." 200
+    }
+
+    # Deny all other requests.
+    handle {
+        respond "Access Denied." 403
+    }
 }
 
 cloud.corgijan.dev {
