@@ -7,9 +7,8 @@ www.corgi.wiki {
 }
 
 cloud.corgijan.dev {
-
 		@teammember {
-        remote_ip forwarded 161.97.153.120
+        remote_ip 161.97.153.120
     }
     handle @teammember {
     		respond "allowed" 200
