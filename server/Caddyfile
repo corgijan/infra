@@ -7,11 +7,9 @@ www.corgi.wiki {
 }
 
 cloud.corgijan.dev {
-	templates
 	@denied not client_ip 100.115.146.24  100.109.136.60
 	abort @denied
-
-	respond "Hello, you must be from a private network! {{.RemoteIP}}"
+	reverse_proxy maine:31001
 }
 
 verified.corgi.wiki {
