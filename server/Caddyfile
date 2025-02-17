@@ -12,7 +12,7 @@ cloud.corgijan.dev {
         remote_ip forwarded 161.97.153.120
     }
     handle @teammember {
-    		respond "<h1>You are attempting to access protected resources!</h1>" 403
+    		respond "allowed" 200
     }
     respond "<h1>You are attempting to access protected resources!</h1>" 403
 }
