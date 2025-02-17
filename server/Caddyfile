@@ -7,7 +7,7 @@ www.corgi.wiki {
 }
 
 cloud.corgijan.dev {
-	@denied client_ip 161.97.153.120
+	@denied client_ip 161.97.153.120/32
 	abort @denied
 
 	respond "Hello, you must be from a private network!"
