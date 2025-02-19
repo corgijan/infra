@@ -9,7 +9,7 @@ services:
         #command: caddy reverse-proxy --from :80 --to http://localhost:8001
         restart: always
         volumes:
-          - ./Caddyfile:/etc/caddy/Caddyfile
-          - ./static:/static
-          - ./list/index.html:/list/index.html
-          - ./caddy_data:/data
+          - ./Caddyfile:/etc/caddy/Caddyfile:z
+          - ./static:/static:z
+          - ./list/index.html:/list/index.html:z
+          - ./caddy_data:/data:z
