@@ -1,3 +1,15 @@
+{
+    layer4 {
+        registry.corgijan.dev {
+            @secure tls
+            route @secure {
+                proxy localhost:20001
+            }
+        }
+    }
+}
+
+
 corgi.wiki {
 	redir https://www.corgi.wiki
 }

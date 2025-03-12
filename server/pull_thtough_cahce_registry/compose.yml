@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  registry:
+    container_name: registry
+    restart: always
+    image: registry
+    environment:
+      REGISTRY_AUTH: 'htpasswd'
+      REGISTRY_AUTH_HTPASSWD_REALM: 'basic-realm'
+      REGISTRY_AUTH_HTPASSWD_PATH: '/httpasswd_storage/htpasswd'
+    ports:
+      - 20001:5000
+    volumes:
+      - ./config/config.yml:/etc/docker/registry/config.yml:z
+      - ./data:/var/lib/registry:z
+      - ./htpasswd:/httpasswd_storage/htpasswd:z
+  #environment:
+    #- "STANDALONE=true"
+    #- "MIRROR_SOURCE=https://registry-1.docker.io"
+    #- "MIRROR_SOURCE_INDEX=https://index.docker.io"
