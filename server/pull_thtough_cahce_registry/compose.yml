@@ -10,7 +10,7 @@ services:
       REGISTRY_AUTH_HTPASSWD_REALM: 'basic-realm'
       REGISTRY_AUTH_HTPASSWD_PATH: '/httpasswd_storage/htpasswd'
     ports:
-      - 20001:5000
+      - 127.0.0.1:20001:5000
     volumes:
       - ./config/config.yml:/etc/docker/registry/config.yml:z
       - ./data:/var/lib/registry:z

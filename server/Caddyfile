@@ -20,7 +20,7 @@ www.corgi.wiki {
 }
 
 registry.corgijan.dev {
-	reverse_proxy maine:20001
+	reverse_proxy localhost:20001
 }
 
 cloud.corgijan.dev {
