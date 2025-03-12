@@ -20,6 +20,10 @@ www.corgi.wiki {
 }
 
 registry.corgijan.dev {
+	reverse_proxy localhost:20002
+}
+
+containercache.corgijan.dev {
 	reverse_proxy localhost:20001
 }
 
