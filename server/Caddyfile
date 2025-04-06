@@ -23,6 +23,10 @@ registry.corgijan.dev {
 	reverse_proxy localhost:20002
 }
 
+wanderniniserlohn.corgijan.dev {
+	reverse_proxy localhost:16111
+}
+
 containercache.corgijan.dev {
 	reverse_proxy localhost:20001
 }
