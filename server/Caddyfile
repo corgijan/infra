@@ -131,6 +131,14 @@ test.corgijan.dev {
 	reverse_proxy localhost:4999
 }
 
+test2.corgijan.dev {
+	reverse_proxy localhost:4998
+}
+
+test2.corgijan.dev {
+	reverse_proxy localhost:4997
+}
+
 tischtennis.corgijan.dev {
 	reverse_proxy localhost:55000
 }
