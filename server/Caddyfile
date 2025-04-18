@@ -166,6 +166,5 @@ vpn.corgijan.dev {
 }
 
 heymofhassellyn.corgijan.dev {
-	reverse_proxy /web* localhost:30003
-	reverse_proxy * localhost:30004
+	reverse_proxy localhost:4996
 }
