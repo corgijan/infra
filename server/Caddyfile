@@ -168,3 +168,11 @@ vpn.corgijan.dev {
 heymofhassellyn.corgijan.dev {
 	reverse_proxy localhost:4996
 }
+
+lowersaxon.corgijan.dev {
+	reverse_proxy localhost:4995
+}
+
+ez-breederpage.corgijan.dev {
+	reverse_proxy localhost:4994
+}
