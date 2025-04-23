@@ -176,3 +176,6 @@ lowersaxon.corgijan.dev {
 ez-breederpage.corgijan.dev {
 	reverse_proxy localhost:4994
 }
+pxies.corgijan.dev {
+	reverse_proxy localhost:4993
+}
