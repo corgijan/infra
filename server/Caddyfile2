@@ -1,0 +1,31 @@
+# this also works via https, but this way its far cooler :D
+{
+    layer4 {
+        :40001 {
+            @secure tls
+            route @secure {
+                proxy localhost:20001
+            }
+        }
+    }
+}
+
+
+corgi.wiki {
+	redir https://www.corgi.wiki
+}
+
+www.corgi.wiki {
+	reverse_proxy localhost:8001
+}
+
+backups.corgi.wiki {
+	@robotsTxt {
+		path /robots.txt
+	}
+	handle @robotsTxt {
+		respond "User-agent: *\nDisallow: /" 200
+	}
+	reverse_proxy localhost:7001
+}
+

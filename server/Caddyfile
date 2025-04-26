@@ -11,14 +11,6 @@
 }
 
 
-corgi.wiki {
-	redir https://www.corgi.wiki
-}
-
-www.corgi.wiki {
-	reverse_proxy localhost:8001
-}
-
 registry.corgijan.dev {
 	reverse_proxy localhost:20002
 }
@@ -35,55 +27,6 @@ cloud.corgijan.dev {
 	@denied not client_ip 100.64.0.0/10 
 	abort @denied
 	reverse_proxy maine:31002
-}
-
-verified.corgi.wiki {
-	@robotsTxt {
-		path /robots.txt
-	}
-	handle @robotsTxt {
-		respond "User-agent: *\nDisallow: /" 200
-	}
-	reverse_proxy localhost:8028
-}
-
-staging.corgi.wiki {
-	@robotsTxt {
-		path /robots.txt
-	}
-	handle @robotsTxt {
-		respond "User-agent: *\nDisallow: /" 200
-	}
-	reverse_proxy localhost:8018
-}
-
-backups.corgi.wiki {
-	@robotsTxt {
-		path /robots.txt
-	}
-	handle @robotsTxt {
-		respond "User-agent: *\nDisallow: /" 200
-	}
-	reverse_proxy localhost:7001
-}
-
-logs.corgi.wiki {
-	@robotsTxt {
-		path /robots.txt
-	}
-	handle @robotsTxt {
-		respond "User-agent: *\nDisallow: /" 200
-	}
-	reverse_proxy localhost:14001
-}
-analytics.corgi.wiki {
-	@robotsTxt {
-		path /robots.txt
-	}
-	handle @robotsTxt {
-		respond "User-agent: *\nDisallow: /" 200
-	}
-	reverse_proxy localhost:15001
 }
 
 git.corgijan.dev {
