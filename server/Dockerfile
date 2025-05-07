@@ -1,7 +1,7 @@
 FROM golang:1.24-alpine AS builder
 RUN apk add --no-cache git ca-certificates
 RUN go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest
-RUN xcaddy build --with github.com/mholt/caddy-l4 --output /usr/bin/caddy && chmod +x /usr/bin/caddy
+RUN xcaddy build --with github.com/mholt/caddy-l4 --with github.com/mholt/caddy-ratelimit --output /usr/bin/caddy && chmod +x /usr/bin/caddy
 FROM alpine:3.15
 RUN apk add --no-cache ca-certificates mailcap
 RUN set -eux; \

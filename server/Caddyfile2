@@ -1,15 +1,14 @@
 # this also works via https, but this way its far cooler :D
 {
-    layer4 {
-        :40001 {
-            @secure tls
-            route @secure {
-                proxy localhost:20001
-            }
-        }
-    }
+	layer4 {
+		:40001 {
+			@secure tls
+			route @secure {
+				proxy localhost:20001
+			}
+		}
+	}
 }
-
 
 corgi.wiki {
 	redir https://www.corgi.wiki
@@ -26,6 +25,22 @@ backups.corgi.wiki {
 	handle @robotsTxt {
 		respond "User-agent: *\nDisallow: /" 200
 	}
+	rate_limit {
+		distributed
+		zone static_example {
+			match {
+				method GET
+			}
+			key static
+			events 100
+			window 1m
+		}
+		zone dynamic_example {
+			key {remote_host}
+			events 2
+			window 5s
+		}
+		log_key
+	}
 	reverse_proxy localhost:7001
 }
-

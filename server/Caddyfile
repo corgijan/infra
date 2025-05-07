@@ -1,15 +1,14 @@
 # this also works via https, but this way its far cooler :D
 {
-    layer4 {
-        :40001 {
-            @secure tls
-            route @secure {
-                proxy localhost:20001
-            }
-        }
-    }
+	layer4 {
+		:40001 {
+			@secure tls
+			route @secure {
+				proxy localhost:20001
+			}
+		}
+	}
 }
-
 
 registry.corgijan.dev {
 	reverse_proxy localhost:20002
@@ -24,7 +23,7 @@ containercache.corgijan.dev {
 }
 
 cloud.corgijan.dev {
-	@denied not client_ip 100.64.0.0/10 
+	@denied not client_ip 100.64.0.0/10
 	abort @denied
 	reverse_proxy maine:31002
 }
@@ -46,7 +45,6 @@ bäckerone.corgijan.dev {
 rezepte.corgijan.dev {
 	reverse_proxy localhost:30002
 }
-
 
 corgijan.dev {
 	redir https://www.corgijan.dev/aboutme
