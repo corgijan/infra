@@ -17,11 +17,13 @@ corgi.wiki {
 
 www.corgi.wiki {
 	handle_path /.within.website/x/cmd/anubis/static/img/happy.webp {
-        rewrite * /data/happy.webp
+        rewrite * /happy.webp
+				root * /data
     		file_server
     }
 	handle_path /.within.website/x/cmd/anubis/static/img/pensive.webp {
-        rewrite * /data/happy.webp
+        rewrite * /happy.webp
+				root * /data
     		file_server
     }
 
