@@ -5,7 +5,7 @@ services:
         #image: docker.io/library/caddy:alpine
         build: .
         network_mode: host
-        command: caddy run --config /etc/caddy/Caddyfile --listen 127.0.0.1
+        command: caddy run --config /etc/caddy/Caddyfile
         #command: caddy reverse-proxy --from :80 --to http://localhost:8001
         restart: always
         volumes:
