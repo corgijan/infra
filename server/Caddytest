@@ -5,5 +5,5 @@
 }
 
 anubis.corgi.wiki {
-	redir http://loclhost:8001
+	reverse_proxy localhost:8081
 }

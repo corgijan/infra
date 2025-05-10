@@ -11,7 +11,7 @@
 }
 
 anubis.corgi.wiki {
-	redir https://loclhost:8081
+	reverse_proxy localhost:8081
 }
 
 corgi.wiki {
