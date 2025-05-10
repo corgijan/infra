@@ -27,5 +27,5 @@ services:
           OG_PASSTHROUGH: "true"
           OG_EXPIRY_TIME: "24h"
         network_mode: host
-        #volumes:
-        #- "./botPolicy.yaml:/data/cfg/botPolicy.yaml:ro"
+        volumes:
+        - "./botPolicy.yaml:/data/cfg/botPolicy.yaml:ro"
