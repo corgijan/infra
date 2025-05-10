@@ -10,8 +10,11 @@
 	}
 }
 
+anubis.corgi.wiki {
+	redir https://loclhost:8081
+}
+
 corgi.wiki {
-	
 	redir https://www.corgi.wiki
 }
 

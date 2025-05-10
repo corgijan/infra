@@ -1,20 +1,9 @@
+# this also works via https, but this way its far cooler :D
+{
+	auto_https off
+	http_port 7000
+}
 
-www.corgi.wiki {
-	handle_path /.within.website/x/cmd/anubis/static/img/happy.webp {
-        rewrite * /happy.webp
-				root * /srv
-    		file_server
-    }
-	handle_path /.within.website/x/cmd/anubis/static/img/pensive.webp {
-        rewrite * /happy.webp
-				root * /srv
-    		file_server
-    }
-	handle_path /happy.webp {
-        rewrite * /happy.webp
-				root * /srv
-    		file_server
-    }
-
-	reverse_proxy localhost:8080
+test3.corgi.wiki {
+	redir http://loclhost:8001
 }
