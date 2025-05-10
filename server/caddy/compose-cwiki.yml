@@ -1,0 +1,57 @@
+version: "3.7"
+
+services:
+
+    reverse-proxy-no-tls:
+        #image: docker.io/library/caddy:alpine
+        build: .
+        network_mode: host
+        command: caddy run --config /etc/caddy/Caddyfile
+        #command: caddy reverse-proxy --from :80 --to http://localhost:8001
+        restart: always
+        volumes:
+          - ./Caddyfile-CorgiWiki-Reverse-Proxy:/etc/caddy/Caddyfile:z
+          - ./caddy_data:/data:z
+          - ./happy.webp:/srv/happy.webp:ro
+
+    reverse-proxy-tls:
+        #image: docker.io/library/caddy:alpine
+        build: .
+        network_mode: host
+        command: caddy run --config /etc/caddy/Caddyfile
+        #command: caddy reverse-proxy --from :80 --to http://localhost:8001
+        restart: always
+        volumes:
+          - ./Caddyfile-CorgiWiki-TLS-Term:/etc/caddy/Caddyfile:z
+          - ./caddy_data:/data:z
+          - ./happy.webp:/srv/happy.webp:ro
+
+    anubis:
+        image: ghcr.io/techarohq/anubis:latest
+        environment:
+          BIND: ":8080"
+          DIFFICULTY: "4"
+          METRICS_BIND: ":9090"
+          SERVE_ROBOTS_TXT: "true"
+          TARGET: "http://localhost:8001"
+          POLICY_FNAME: "/data/cfg/botPolicy.yaml"
+          OG_PASSTHROUGH: "true"
+          OG_EXPIRY_TIME: "24h"
+        network_mode: host
+        volumes:
+          - "./botPolicy.yaml:/data/cfg/botPolicy.yaml:ro"
+
+    anubis-all:
+        image: ghcr.io/techarohq/anubis:latest
+        environment:
+          BIND: ":8081"
+          DIFFICULTY: "4"
+          METRICS_BIND: ":9091"
+          SERVE_ROBOTS_TXT: "true"
+          TARGET: "http://localhost:7000"
+          POLICY_FNAME: "/data/cfg/botPolicy.yaml"
+          OG_PASSTHROUGH: "true"
+          OG_EXPIRY_TIME: "24h"
+        network_mode: host
+        volumes:
+          - "./botPolicy.yaml:/data/cfg/botPolicy.yaml:ro"

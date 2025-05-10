@@ -1,0 +1,69 @@
+# this also works via https, but this way its far cooler :D
+{
+	layer4 {
+		:40001 {
+			@secure tls
+			route @secure {
+				proxy localhost:20001
+			}
+		}
+	}
+}
+
+anubis.corgi.wiki {
+	reverse_proxy localhost:8081
+}
+
+anubis2.corgi.wiki {
+	reverse_proxy localhost:8081
+}
+corgi.wiki {
+	redir https://www.corgi.wiki
+}
+
+www.corgi.wiki {
+	handle_path /.within.website/x/cmd/anubis/static/img/happy.webp {
+        rewrite * /happy.webp
+				root * /srv
+    		file_server
+    }
+	handle_path /.within.website/x/cmd/anubis/static/img/pensive.webp {
+        rewrite * /happy.webp
+				root * /srv
+    		file_server
+    }
+	handle_path /happy.webp {
+        rewrite * /happy.webp
+				root * /srv
+    		file_server
+    }
+
+	reverse_proxy localhost:8080
+}
+
+backups.corgi.wiki {
+	@robotsTxt {
+		path /robots.txt
+	}
+	handle @robotsTxt {
+		respond "User-agent: *\nDisallow: /" 200
+	}
+	rate_limit {
+		distributed
+		zone static_example {
+			match {
+				method GET
+			}
+			key static
+			events 100
+			window 1m
+		}
+		zone dynamic_example {
+			key {remote_host}
+			events 2
+			window 5s
+		}
+		log_key
+	}
+	reverse_proxy localhost:7001
+}
