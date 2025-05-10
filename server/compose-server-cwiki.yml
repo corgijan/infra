@@ -30,5 +30,5 @@ services:
         volumes:
           - "./botPolicy.yaml:/data/cfg/botPolicy.yaml:ro"
           - "./happy.webp:./web/static/img/happy.webp:ro"
-          - "./pensive.webp:./web/static/img/happy.webp:ro"
-          - "./reject.webp:./web/static/img/happy.webp:ro"
+          - "./pensive.webp:./web/static/img/pensive.webp:ro"
+          - "./reject.webp:./web/static/img/reject.webp:ro"
