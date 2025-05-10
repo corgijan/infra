@@ -16,15 +16,15 @@ corgi.wiki {
 }
 
 www.corgi.wiki {
-	handle_path /within.website/x/cmd/anubis/static/img/happy.webp {
+	handle_path /.within.website/x/cmd/anubis/static/img/happy.webp {
         rewrite * /happy.webp
     		file_server
     }
-	handle_path /within.website/x/cmd/anubis/static/img/pensive.webp {
+	handle_path /.within.website/x/cmd/anubis/static/img/pensive.webp {
         rewrite * /happy.webp
     		file_server
     }
-	handle_path /within.website/x/cmd/anubis/static/img/reject.webp {
+	handle_path /.within.website/x/cmd/anubis/static/img/reject.webp {
         rewrite * /happy.webp
     		file_server
     }
