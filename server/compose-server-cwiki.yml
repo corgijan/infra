@@ -29,4 +29,4 @@ services:
         network_mode: host
         volumes:
           - "./botPolicy.yaml:/data/cfg/botPolicy.yaml:ro"
-          - "./happy.webp:/data/happy.webp:ro"
+          - "./happy.webp:/srv/happy.webp:ro"
