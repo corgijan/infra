@@ -54,7 +54,6 @@ www.corgi.wiki {
 		}
 		log_key
 	}
-
 	reverse_proxy localhost:8080
 }
 

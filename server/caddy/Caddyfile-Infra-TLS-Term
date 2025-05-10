@@ -38,12 +38,12 @@ git.corgijan.dev {
         rewrite * /happy.webp
 				root * /srv
     		file_server
-    }
+  }
 	handle_path /happy.webp {
         rewrite * /happy.webp
 				root * /srv
     		file_server
-    }
+  }
 	@robotsTxt {
 		path /robots.txt
 	}
