@@ -8,11 +8,16 @@ anubis.corgi.wiki {
 }
 
 :7000 {
-	log
-	@app1 {
+		log
+    @valid_referer {
         header Referer *anubis.corgi.wiki*
-  }
-  reverse_proxy @app1 127.0.0.1:8001
+    }
+
+    reverse_proxy @valid_referer localhost:8001 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+    }
 
   handle {
   	respond "Invalid Referer or no route found" 403
