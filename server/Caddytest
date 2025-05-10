@@ -10,7 +10,7 @@ anubis.corgi.wiki {
 :7000 {
 		log
     @valid_referer {
-        header Referer *anubis.corgi.wiki*
+        header Referer https://anubis.corgi.wiki/
     }
 
     reverse_proxy @valid_referer localhost:8001 {
