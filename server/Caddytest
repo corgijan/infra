@@ -9,5 +9,12 @@ anubis.corgi.wiki {
 
 :7000 {
 	log
-	respond "port works"
+	@app1 {
+        header Referer *app1.example.com*
+  }
+  reverse_proxy @app1 127.0.0.1:8001
+
+  handle {
+  	respond "Invalid Referer or no route found" 403
+  }
 }
