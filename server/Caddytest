@@ -2,19 +2,16 @@
 	auto_https off
 	http_port 7000
 }
-
-anubis.corgi.wiki {
-	reverse_proxy localhost:8081
-}
-
 :7000 {
     log
-    @valid_host {
-        header X-Forwarded-Host anubis.corgi.wiki
-    }
-    reverse_proxy @valid_host localhost:8001 
+    @cwiki {
+                header X-Forwarded-Host anubis.corgi.wiki
+        }
 
-    handle {
-  	    respond "Invalid Referer or no route found" 403
-  }
+        route {
+                reverse_proxy @cwiki localhost:8001
+                respond "No soup for you!"
+        }
 }
+
+
