@@ -37,6 +37,23 @@ www.corgi.wiki {
 				root * /srv
     		file_server
     }
+	rate_limit {
+		distributed
+		zone static_example {
+			match {
+				method GET
+			}
+			key static
+			events 100
+			window 1m
+		}
+		zone dynamic_example {
+			key {remote_host}
+			events 2
+			window 5s
+		}
+		log_key
+	}
 
 	reverse_proxy localhost:8080
 }

@@ -7,11 +7,11 @@
     log
 
     @validHeader {
-        header X-Forwarded-Host anubis.corgi.wiki
+        header X-Forwarded-Host git.corgijan.dev
     }
 
     handle @validHeader {
-        reverse_proxy anubis.corgi.wiki
+        reverse_proxy http://maine:31000
     }
 
     handle {

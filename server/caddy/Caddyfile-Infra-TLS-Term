@@ -29,6 +29,21 @@ cloud.corgijan.dev {
 }
 
 git.corgijan.dev {
+	handle_path /.within.website/x/cmd/anubis/static/img/happy.webp {
+        rewrite * /happy.webp
+				root * /srv
+    		file_server
+    }
+	handle_path /.within.website/x/cmd/anubis/static/img/pensive.webp {
+        rewrite * /happy.webp
+				root * /srv
+    		file_server
+    }
+	handle_path /happy.webp {
+        rewrite * /happy.webp
+				root * /srv
+    		file_server
+    }
 	@robotsTxt {
 		path /robots.txt
 	}
