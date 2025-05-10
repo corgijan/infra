@@ -6,6 +6,8 @@
 anubis.corgi.wiki {
 	reverse_proxy localhost:8081
 }
+
 :7000 {
+	log
 	respond "port works"
 }
