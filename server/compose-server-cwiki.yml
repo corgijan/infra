@@ -14,6 +14,7 @@ services:
           - ./static:/static:z
           - ./list/index.html:/list/index.html:z
           - ./caddy_data:/data:z
+          - ./happy.webp:/srv/happy.webp:ro
 
     anubis-nginx:
         image: ghcr.io/techarohq/anubis:latest
@@ -29,4 +30,3 @@ services:
         network_mode: host
         volumes:
           - "./botPolicy.yaml:/data/cfg/botPolicy.yaml:ro"
-          - "./happy.webp:/srv/happy.webp:ro"
