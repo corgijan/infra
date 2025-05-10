@@ -14,6 +14,9 @@ anubis.corgi.wiki {
 	reverse_proxy localhost:8081
 }
 
+anubis2.corgi.wiki {
+	reverse_proxy localhost:8081
+}
 corgi.wiki {
 	redir https://www.corgi.wiki
 }
