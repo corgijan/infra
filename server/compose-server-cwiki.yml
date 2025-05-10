@@ -28,4 +28,4 @@ services:
           OG_EXPIRY_TIME: "24h"
         network_mode: host
         volumes:
-        - "./botPolicy.yaml:/data/cfg/botPolicy.yaml:ro"
+          - "./botPolicy.yaml:/data/cfg/botPolicy.yaml:ro"
