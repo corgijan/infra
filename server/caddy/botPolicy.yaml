@@ -1,7 +1,4 @@
 bots:
-  - name: well-known
-    path_regex: ^.*$
-    action: ALLOW
   - name: google
     user_agent_regex: .*Googlebot.*
     action: ALLOW
