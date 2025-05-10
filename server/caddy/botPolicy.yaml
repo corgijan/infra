@@ -22,7 +22,7 @@
     },
  {
       "name": "google-index",
-      "user_agent_regex": "*Googlebot*",
+      "user_agent_regex": ".*Googlebot.*",
       "action": "ALLOW",
     },
   ],
