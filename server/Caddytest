@@ -12,13 +12,8 @@ anubis.corgi.wiki {
     @valid_host {
         header X-Forwarded-Host anubis.corgi.wiki
     }
+    reverse_proxy @valid_host localhost:8001 
 
-    reverse_proxy @valid_host localhost:8001 {
-        header_up Host {host}
-        header_up X-Real-IP {remote_host}
-        header_up X-Forwarded-For {remote_host}
-		header_up X-Forwarded-Host {host}
-    }
     handle {
   	    respond "Invalid Referer or no route found" 403
   }
