@@ -1,18 +1,20 @@
 {
-	auto_https off
-	http_port 7000
+    auto_https off
+    http_port 7000
 }
 
 :7000 {
-	log
-	@git {
-		header X-Forwarded-Host git.corgijan.dev
-	}
+    log
 
-	route {
-		reverse_proxy @git http://maine:31000
-	}
-	handle {
-		respond "Error"
-	}
+    @validHeader {
+        header X-Forwarded-Host anubis.corgi.wiki
+    }
+
+    handle @validHeader {
+        reverse_proxy anubis.corgi.wiki
+    }
+
+    handle {
+        respond "No soup for you!" 400
+    }
 }
