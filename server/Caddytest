@@ -10,7 +10,7 @@ anubis.corgi.wiki {
 :7000 {
 	log
 	@app1 {
-        header Referer *app1.example.com*
+        header Referer *anubis.corgi.wiki*
   }
   reverse_proxy @app1 127.0.0.1:8001
 
