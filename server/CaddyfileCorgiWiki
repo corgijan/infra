@@ -26,6 +26,11 @@ www.corgi.wiki {
 				root * /srv
     		file_server
     }
+	handle_path /happy.webp {
+        rewrite * /happy.webp
+				root * /srv
+    		file_server
+    }
 
 	reverse_proxy localhost:8080
 }
