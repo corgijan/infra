@@ -1,7 +1,7 @@
 {
 	auto_https off
 	http_port 7000
-}
+} 
 
 :7000 {
     log
