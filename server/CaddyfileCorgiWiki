@@ -24,10 +24,6 @@ www.corgi.wiki {
         rewrite * /data/happy.webp
     		file_server
     }
-	handle_path /.within.website/x/cmd/anubis/static/img/reject.webp {
-        rewrite * /data/happy.webp
-    		file_server
-    }
 
 	reverse_proxy localhost:8080
 }
