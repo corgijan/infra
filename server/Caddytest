@@ -9,7 +9,7 @@
         }
 
         route {
-                reverse_proxy @cwiki localhost:8001
+                respond @cwiki "You got Soup"
                 respond "No soup for you!"
         }
 }
