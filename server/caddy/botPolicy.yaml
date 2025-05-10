@@ -1,34 +1,19 @@
 {
   "bots": [
     {
-      "name": "google-index",
-      "user_agent_regex": ".*Googlebot.*",
-      "action": "ALLOW",
+      "name": "googlebot",
+      "user_agent_regex": "\\+http\\:\\/\\/www\\.google\\.com/bot\\.html",
+      "action": "ALLOW"
     },
     {
-      "import": "(data)/bots/_deny-pathological.yaml"
-    },
-    {
-      "import": "(data)/bots/ai-robots-txt.yaml"
-    },
-    {
-      "import": "(data)/crawlers/_allow-good.yaml"
-    },
-    {
-      "import": "(data)/bots/aggressive-brazilian-scrapers.yaml"
-    },
-    {
-      "import": "(data)/common/keep-internet-working.yaml"
+      "name": "chatgpt",
+      "user_agent_regex": "\\+https\\:\\/\\/openai\\.com\\/gptbot",
+      "action": "DENY"
     },
     {
       "name": "generic-browser",
-      "user_agent_regex": "Mozilla|Opera",
+      "user_agent_regex": "Mozilla",
       "action": "CHALLENGE"
-    },
-  ],
-  "dnsbl": false,
-  "status_codes": {
-    "CHALLENGE": 200,
-    "DENY": 200
-  }
+    }
+  ]
 }
