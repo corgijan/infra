@@ -1,4 +1,3 @@
-# this also works via https, but this way its far cooler :D
 {
 	auto_https off
 	http_port 7000
@@ -6,4 +5,7 @@
 
 anubis.corgi.wiki {
 	reverse_proxy localhost:8081
+}
+:7000 {
+	respond "port works"
 }
