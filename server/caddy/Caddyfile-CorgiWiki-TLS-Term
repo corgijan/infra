@@ -44,12 +44,12 @@ www.corgi.wiki {
 				method GET
 			}
 			key static
-			events 100
+			events 300
 			window 1m
 		}
 		zone dynamic_example {
 			key {remote_host}
-			events 2
+			events 8
 			window 5s
 		}
 		log_key
@@ -76,7 +76,7 @@ backups.corgi.wiki {
 		}
 		zone dynamic_example {
 			key {remote_host}
-			events 2
+			events 8
 			window 5s
 		}
 		log_key
