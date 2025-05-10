@@ -1,6 +1,7 @@
 {
     auto_https off
     http_port 7000
+    default_bind 127.0.0.1
 }
 
 :7000 {
