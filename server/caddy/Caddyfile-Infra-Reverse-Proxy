@@ -3,8 +3,9 @@
     http_port 7000
 }
 
-127.0.0.1:7000 {
+:7000 {
     log
+    bind 127.0.0.1
 
     @validHeader {
         header X-Forwarded-Host git.corgijan.dev
