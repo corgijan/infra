@@ -10,7 +10,7 @@ services:
         #command: caddy reverse-proxy --from :80 --to http://localhost:8001
         restart: always
         volumes:
-          - ./Caddytest:/etc/caddy/Caddyfile:z
+          - ./Caddyfile-CorgiWiki-Reverse-Proxy:/etc/caddy/Caddyfile:z
           - ./caddy_data:/data:z
           - ./happy.webp:/srv/happy.webp:ro
 
@@ -22,7 +22,7 @@ services:
         #command: caddy reverse-proxy --from :80 --to http://localhost:8001
         restart: always
         volumes:
-          - ./CaddyfileCorgiWiki:/etc/caddy/Caddyfile:z
+          - ./Caddyfile-CorgiWiki-TLS-Term:/etc/caddy/Caddyfile:z
           - ./caddy_data:/data:z
           - ./happy.webp:/srv/happy.webp:ro
 
