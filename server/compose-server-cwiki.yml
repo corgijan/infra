@@ -29,6 +29,3 @@ services:
         network_mode: host
         volumes:
           - "./botPolicy.yaml:/data/cfg/botPolicy.yaml:ro"
-          - "./happy.webp:./cmd/anubis/static/img/happy.webp:ro"
-          - "./pensive.webp:./cmd/anubis/static/img/pensive.webp:ro"
-          - "./reject.webp:./cmd/anubis/static/img/reject.webp:ro"
