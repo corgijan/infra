@@ -1,1 +1,122 @@
+# this also works via https, but this way its far cooler :D
+{
+	layer4 {
+		:40001 {
+			@secure tls
+			route @secure {
+				proxy localhost:20001
+			}
+		}
+	}
+}
 
+registry.corgijan.dev {
+	reverse_proxy localhost:20002
+}
+
+wanderniniserlohn.corgijan.dev {
+	reverse_proxy localhost:16111
+}
+
+containercache.corgijan.dev {
+	reverse_proxy localhost:20001
+}
+
+cloud.corgijan.dev {
+	@denied not client_ip 100.64.0.0/10
+	abort @denied
+	reverse_proxy maine:31002
+}
+
+git.corgijan.dev {
+	@robotsTxt {
+		path /robots.txt
+	}
+	handle @robotsTxt {
+		respond "User-agent: *\nDisallow: /" 200
+	}
+	reverse_proxy http://localhost:8081
+}
+
+bäckerone.corgijan.dev {
+	redir https://rezepte.corgijan.dev
+}
+
+rezepte.corgijan.dev {
+	reverse_proxy localhost:30002
+}
+
+corgijan.dev {
+	redir https://www.corgijan.dev/aboutme
+}
+
+www.corgijan.dev {
+	reverse_proxy localhost:30001
+}
+
+blog.corgijan.dev {
+	reverse_proxy localhost:30001
+}
+
+nutritionist.corgijan.dev {
+	reverse_proxy localhost:10001
+}
+nut.corgijan.dev {
+	redir https://nutritionist.corgijan.dev
+}
+nutrition.corgijan.dev {
+	redir https://nutritionist.corgijan.dev
+}
+
+test.corgijan.dev {
+	reverse_proxy localhost:4999
+}
+
+test2.corgijan.dev {
+	reverse_proxy localhost:4998
+}
+
+test3.corgijan.dev {
+	reverse_proxy localhost:4997
+}
+
+tischtennis.corgijan.dev {
+	reverse_proxy localhost:55000
+}
+
+auth.corgijan.dev {
+	@robotsTxt {
+		path /robots.txt
+	}
+	handle @robotsTxt {
+		respond "User-agent: *\nDisallow: /" 200
+	}
+	reverse_proxy localhost:9000
+}
+schmfy.corgijan.dev {
+	reverse_proxy localhost:13001
+}
+
+vault.corgijan.dev {
+	reverse_proxy http://maine:31004
+}
+
+vpn.corgijan.dev {
+	reverse_proxy /web* localhost:30003
+	reverse_proxy * localhost:30004
+}
+
+heymofhassellyn.corgijan.dev {
+	reverse_proxy localhost:4996
+}
+
+lowersaxon.corgijan.dev {
+	reverse_proxy localhost:4995
+}
+
+ez-breederpage.corgijan.dev {
+	reverse_proxy localhost:4994
+}
+pixies.corgijan.dev {
+	reverse_proxy localhost:4993
+}
