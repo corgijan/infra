@@ -4,6 +4,6 @@
 	http_port 7000
 }
 
-test3.corgi.wiki {
+anubis.corgi.wiki {
 	redir http://loclhost:8001
 }

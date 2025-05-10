@@ -11,8 +11,6 @@ services:
         restart: always
         volumes:
           - ./Caddytest:/etc/caddy/Caddyfile:z
-          - ./static:/static:z
-          - ./list/index.html:/list/index.html:z
           - ./caddy_data:/data:z
           - ./happy.webp:/srv/happy.webp:ro
 
@@ -25,8 +23,6 @@ services:
         restart: always
         volumes:
           - ./CaddyfileCorgiWiki:/etc/caddy/Caddyfile:z
-          - ./static:/static:z
-          - ./list/index.html:/list/index.html:z
           - ./caddy_data:/data:z
           - ./happy.webp:/srv/happy.webp:ro
 
