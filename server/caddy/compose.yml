@@ -1,17 +1,18 @@
 version: "3.7"
 
 services:
-    reverse-proxy-no-tls:
+  # reverse-proxy-no-tls:
         #image: docker.io/library/caddy:alpine
-        build: .
-        network_mode: host
-        command: caddy run --config /etc/caddy/Caddyfile
+        #build: .
+        #network_mode: host
+        #command: caddy run --config /etc/caddy/Caddyfile
         #command: caddy reverse-proxy --from :80 --to http://localhost:8001
-        restart: always
-        volumes:
-          - ./Caddyfile-Infra-Reverse-Proxy:/etc/caddy/Caddyfile:z
-          - ./caddy_data:/data:z
-          - ./happy.webp:/srv/happy.webp:ro
+        #restart: always
+        
+      #volumes:
+      #   - ./Caddyfile-Infra-Reverse-Proxy:/etc/caddy/Caddyfile:z
+      #   - ./caddy_data:/data:z
+      #   - ./happy.webp:/srv/happy.webp:ro
 
     reverse-proxy-tls:
         #image: docker.io/library/caddy:alpine
