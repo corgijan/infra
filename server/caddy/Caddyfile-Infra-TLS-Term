@@ -133,5 +133,5 @@ ez-breederpage.corgijan.dev {
 	reverse_proxy localhost:4994
 }
 pixies.corgijan.dev {
-	reverse_proxy localhost:4993
+	 respond "hello"
 }
