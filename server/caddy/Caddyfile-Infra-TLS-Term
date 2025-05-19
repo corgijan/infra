@@ -30,27 +30,27 @@ cloud.corgijan.dev {
 
 git.corgijan.dev {
 	handle_path /.within.website/x/cmd/anubis/static/img/happy.webp {
-        rewrite * /happy.webp
-				root * /srv
-    		file_server
-  }
+		rewrite * /happy.webp
+		root * /srv
+		file_server
+	}
 	handle_path /.within.website/x/cmd/anubis/static/img/pensive.webp {
-        rewrite * /happy.webp
-				root * /srv
-    		file_server
-  }
+		rewrite * /happy.webp
+		root * /srv
+		file_server
+	}
 	handle_path /happy.webp {
-        rewrite * /happy.webp
-				root * /srv
-    		file_server
-  }
+		rewrite * /happy.webp
+		root * /srv
+		file_server
+	}
 	@robotsTxt {
 		path /robots.txt
 	}
 	handle @robotsTxt {
 		respond "User-agent: *\nDisallow: /" 200
 	}
-  reverse_proxy http://maine:31000
+	reverse_proxy http://maine:31000
 }
 
 bäckerone.corgijan.dev {
@@ -133,5 +133,5 @@ ez-breederpage.corgijan.dev {
 	reverse_proxy localhost:4994
 }
 pixies.corgijan.dev {
-	 respond "hello"
+	respond "hello"
 }
