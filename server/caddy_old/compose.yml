@@ -2,8 +2,8 @@ version: "3.7"
 
 services:
     reverse-proxy:
-        #image: docker.io/library/caddy:alpine
-        build: .
+        image: hainz98/caddy
+        #build: .
         container_name: caddy
         network_mode: host
         command: caddy run --config /etc/caddy/Caddyfile
