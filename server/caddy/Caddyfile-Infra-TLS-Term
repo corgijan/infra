@@ -50,7 +50,7 @@ git.corgijan.dev {
 	handle @robotsTxt {
 		respond "User-agent: *\nDisallow: /" 200
 	}
-	reverse_proxy http://localhost:8081
+  reverse_proxy http://maine:31000
 }
 
 bäckerone.corgijan.dev {
