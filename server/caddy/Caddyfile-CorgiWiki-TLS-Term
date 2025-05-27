@@ -55,7 +55,7 @@ www.corgi.wiki {
 		}
 		log_key
 	}
-	reverse_proxy localhost:8080
+	reverse_proxy localhost:8001
 }
 
 backups.corgi.wiki {
