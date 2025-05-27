@@ -83,9 +83,6 @@ nutrition.corgijan.dev {
 	redir https://nutritionist.corgijan.dev
 }
 
-test.corgijan.dev {
-	reverse_proxy localhost:4999
-}
 
 test2.corgijan.dev {
 	reverse_proxy localhost:4998
@@ -132,6 +129,7 @@ lowersaxon.corgijan.dev {
 ez-breederpage.corgijan.dev {
 	reverse_proxy localhost:4994
 }
-pixies.corgijan.dev {
-	respond "hello"
+
+test.corgijan.dev {
+	respond "hello there"
 }
