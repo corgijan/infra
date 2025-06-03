@@ -133,3 +133,19 @@ ez-breederpage.corgijan.dev {
 test.corgijan.dev {
 	respond "hello there"
 }
+
+heymofhassellyn.corgijan.dev {
+        reverse_proxy maine:4996
+}
+ez-breederpage.corgijan.dev {
+        reverse_proxy maine:4994
+}
+lowersaxon.corgijan.dev {
+        reverse_proxy maine:4993
+}
+vomweinbergschloesschen.corgijan.dev {
+        reverse_proxy maine:4992
+}
+pixies.corgijan.dev {
+        reverse_proxy maine:4991
+}⏎ 
