@@ -118,18 +118,6 @@ vpn.corgijan.dev {
 	reverse_proxy * localhost:30004
 }
 
-heymofhassellyn.corgijan.dev {
-	reverse_proxy localhost:4996
-}
-
-lowersaxon.corgijan.dev {
-	reverse_proxy localhost:4995
-}
-
-ez-breederpage.corgijan.dev {
-	reverse_proxy localhost:4994
-}
-
 test.corgijan.dev {
 	respond "hello there"
 }
