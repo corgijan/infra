@@ -23,8 +23,6 @@ containercache.corgijan.dev {
 }
 
 cloud.corgijan.dev {
-	@denied not client_ip 100.64.0.0/10
-	abort @denied
 	reverse_proxy maine:31002
 }
 
