@@ -23,6 +23,9 @@ containercache.corgijan.dev {
 }
 
 cloud.corgijan.dev {
+	basic_auth {
+		Poppy $2a$14$Zkx19XLiW6VYouLHR5NmfOFU0z2GTNmpkT/5qqR7hx4IjWJPDhjvG
+	}
 	reverse_proxy maine:31002
 }
 
@@ -108,10 +111,16 @@ schmfy.corgijan.dev {
 }
 
 vault.corgijan.dev {
+	basic_auth {
+		Poppy $2a$14$Zkx19XLiW6VYouLHR5NmfOFU0z2GTNmpkT/5qqR7hx4IjWJPDhjvG
+	}
 	reverse_proxy http://maine:31004
 }
 
 vpn.corgijan.dev {
+	basic_auth {
+		Poppy $2a$14$Zkx19XLiW6VYouLHR5NmfOFU0z2GTNmpkT/5qqR7hx4IjWJPDhjvG
+	}
 	reverse_proxy /web* localhost:30003
 	reverse_proxy * localhost:30004
 }
