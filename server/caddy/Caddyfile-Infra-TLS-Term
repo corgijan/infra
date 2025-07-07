@@ -190,7 +190,10 @@ test.corgijan.dev {
 	respond "hello there"
 }
 
-heymofhassellyn.corgijan.dev {
+heym-of-hassellyn.com {
+	redir https://www.heym-of-hassellyn.com
+}
+www.heym-of-hassellyn.com {
 	rate_limit {
 		distributed
 		zone static_example {
