@@ -18,13 +18,13 @@ cloud.corgijan.dev {
 				method GET
 			}
 			key static
-			events 50
-			window 3s
+			events 110
+			window 10s
 		}
 		zone dynamic_example {
 			key {remote_host}
-			events 50
-			window 3s
+			events 110
+			window 10s
 		}
 		log_key
 	}
