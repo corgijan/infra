@@ -242,3 +242,9 @@ vomweinbergschloesschen.corgijan.dev {
 pixies.corgijan.dev {
         reverse_proxy maine:4991
 }
+n8n.corgijan.dev {
+	basic_auth {
+		Poppy $2a$14$Zkx19XLiW6VYouLHR5NmfOFU0z2GTNmpkT/5qqR7hx4IjWJPDhjvG
+	}
+        reverse_proxy maine:5678
+}
