@@ -245,6 +245,6 @@ pixies.corgijan.dev {
 n8n.corgijan.dev {
         reverse_proxy maine:5678
 }
-corgi.wiki {
+timon.vaor.in {
 	redir https://diabetes-praxis-muenster.de/wp-content/uploads/2024/12/Timon-Vaorin-e1734013191688-1024x947.png
 }
