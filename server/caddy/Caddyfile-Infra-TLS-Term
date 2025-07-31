@@ -248,3 +248,6 @@ n8n.corgijan.dev {
 timon.vaor.in {
 	redir https://diabetes-praxis-muenster.de/wp-content/uploads/2024/12/Timon-Vaorin-e1734013191688-1024x947.png
 }
+jan.vaor.in {
+	redir https://www.corgijan.dev/aboutme
+}
