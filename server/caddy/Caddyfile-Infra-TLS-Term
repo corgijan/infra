@@ -251,3 +251,7 @@ timon.vaor.in {
 jan.vaor.in {
 	redir https://www.corgijan.dev/aboutme
 }
+geburtstag.von.jan.vaor.in {
+	redir https://docs.google.com/forms/d/e/1FAIpQLSfyMC0niDIoTsn9_2qEymav0NZNyoBOBL2MnLodYREuyNSZHw/viewform?usp=header
+}
+
