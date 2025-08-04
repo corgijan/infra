@@ -254,4 +254,10 @@ jan.vaor.in {
 geburtstag.von.jan.vaor.in {
 	redir https://docs.google.com/forms/d/e/1FAIpQLSfyMC0niDIoTsn9_2qEymav0NZNyoBOBL2MnLodYREuyNSZHw/viewform?usp=header
 }
+website.timon.vaor.in {
+	reverse_proxy maine:8011
+}
+auth.corgijan.dev {
+	reverse_proxy maine:9011
+}
 
