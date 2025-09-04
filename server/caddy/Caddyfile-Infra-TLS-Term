@@ -201,26 +201,6 @@ www.heym-of-hassellyn.com {
 	}
         reverse_proxy maine:4996
 }
-ez-breederpage.corgijan.dev {
-	rate_limit {
-		distributed
-		zone static_example {
-			match {
-				method GET
-			}
-			key static
-			events 50
-			window 3s
-		}
-		zone dynamic_example {
-			key {remote_host}
-			events 50
-			window 3s
-		}
-		log_key
-	}
-        reverse_proxy maine:4994
-}
 jan.vaor.in {
 	redir https://www.corgijan.dev/aboutme
 }
