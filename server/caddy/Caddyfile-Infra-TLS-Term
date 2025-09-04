@@ -1,15 +1,3 @@
-# this also works via https, but this way its far cooler :D
-{
-	layer4 {
-		:40001 {
-			@secure tls
-			route @secure {
-				proxy localhost:20001
-			}
-		}
-	}
-}
-
 cloud.corgijan.dev {
 	rate_limit {
 		distributed
@@ -232,21 +220,6 @@ ez-breederpage.corgijan.dev {
 		log_key
 	}
         reverse_proxy maine:4994
-}
-lowersaxon.corgijan.dev {
-        reverse_proxy maine:4993
-}
-vomweinbergschloesschen.corgijan.dev {
-        reverse_proxy maine:4992
-}
-pixies.corgijan.dev {
-        reverse_proxy maine:4991
-}
-n8n.corgijan.dev {
-        reverse_proxy maine:5678
-}
-timon.vaor.in {
-	redir https://diabetes-praxis-muenster.de/wp-content/uploads/2024/12/Timon-Vaorin-e1734013191688-1024x947.png
 }
 jan.vaor.in {
 	redir https://www.corgijan.dev/aboutme
