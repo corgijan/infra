@@ -1,21 +1,4 @@
 cloud.corgijan.dev {
-        rate_limit {
-                distributed
-                zone static_example {
-                        match {
-                                method GET
-                        }
-                        key static
-                        events 210
-                        window 5s
-                }
-                zone dynamic_example {
-                        key {remote_host}
-                        events 210
-                        window 5s
-                }
-                log_key
-        }
         reverse_proxy maine:31002
 }
 
