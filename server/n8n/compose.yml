@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  n8n:
+    image: n8nio/n8n:1.112.0
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=n8n.corgijan.dev/
+      - WEBHOOK_URL=https://n8n.corgijan.dev/
+      - N8N_PROTOCOL=https
+    volumes:
+      - ./data:/home/node/.n8n
+    restart: unless-stopped
