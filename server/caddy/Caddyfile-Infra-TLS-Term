@@ -20,21 +20,6 @@ git.corgijan.dev {
                 }
                 log_key
         }
-        handle_path /.within.website/x/cmd/anubis/static/img/happy.webp {
-                rewrite * /happy.webp
-                root * /srv
-                file_server
-        }
-        handle_path /.within.website/x/cmd/anubis/static/img/pensive.webp {
-                rewrite * /happy.webp
-                root * /srv
-                file_server
-        }
-        handle_path /happy.webp {
-                rewrite * /happy.webp
-                root * /srv
-                file_server
-        }
         @robotsTxt {
                 path /robots.txt
         }
@@ -42,23 +27,6 @@ git.corgijan.dev {
 }
 
 rezepte.corgijan.dev {
-        rate_limit {
-                distributed
-                zone static_example {
-                        match {
-                                method GET
-                        }
-                        key static
-                        events 50
-                        window 3s
-                }
-                zone dynamic_example {
-                        key {remote_host}
-                        events 50
-                        window 3s
-                }
-                log_key
-        }
         reverse_proxy localhost:30002
 }
 
@@ -67,86 +35,18 @@ corgijan.dev {
 }
 
 www.corgijan.dev {
-        rate_limit {
-                distributed
-                zone static_example {
-                        match {
-                                method GET
-                        }
-                        key static
-                        events 50
-                        window 3s
-                }
-                zone dynamic_example {
-                        key {remote_host}
-                        events 50
-                        window 3s
-                }
-                log_key
-        }
         reverse_proxy localhost:30001
 }
 
 blog.corgijan.dev {
-        rate_limit {
-                distributed
-                zone static_example {
-                        match {
-                                method GET
-                        }
-                        key static
-                        events 50
-                        window 3s
-                }
-                zone dynamic_example {
-                        key {remote_host}
-                        events 50
-                        window 3s
-                }
-                log_key
-        }
         reverse_proxy localhost:30001
 }
 
 vault.corgijan.dev {
-        rate_limit {
-                distributed
-                zone static_example {
-                        match {
-                                method GET
-                        }
-                        key static
-                        events 50
-                        window 3s
-                }
-                zone dynamic_example {
-                        key {remote_host}
-                        events 50
-                        window 3s
-                }
-                log_key
-        }
         reverse_proxy http://maine:31004
 }
 
 vpn.corgijan.dev {
-        rate_limit {
-                distributed
-                zone static_example {
-                        match {
-                                method GET
-                        }
-                        key static
-                        events 50
-                        window 3s
-                }
-                zone dynamic_example {
-                        key {remote_host}
-                        events 50
-                        window 3s
-                }
-                log_key
-        }
         basic_auth {
                 Poppy $2a$14$ugW70CVseb2Gb0Zg2gqlo.OtTjFRERWFIXhY2RuM95hn/VoL/RT8.
         }
@@ -158,49 +58,6 @@ test.corgijan.dev {
         respond "hello there"
 }
 
-heym-of-hassellyn.com {
-        redir https://www.heym-of-hassellyn.com
-}
-www.heym-of-hassellyn.com {
-        rate_limit {
-                distributed
-                zone static_example {
-                        match {
-                                method GET
-                        }
-                        key static
-                        events 50
-                        window 3s
-                }
-                zone dynamic_example {
-                        key {remote_host}
-                        events 50
-                        window 3s
-                }
-                log_key
-        }
-        reverse_proxy maine:4996
-}
-ez-breederpage.corgijan.dev {
-        rate_limit {
-                distributed
-                zone static_example {
-                        match {
-                                method GET
-                        }
-                        key static
-                        events 50
-                        window 3s
-                }
-                zone dynamic_example {
-                        key {remote_host}
-                        events 50
-                        window 3s
-                }
-                log_key
-        }
-        reverse_proxy maine:4994
-}
 jan.vaor.in {
         redir https://www.corgijan.dev/aboutme
 }
@@ -212,4 +69,7 @@ website.timon.vaor.in {
 }
 auth.corgijan.dev {
         reverse_proxy maine:9011
+}
+n8n.corgijan.dev {
+        reverse_proxy maine:5678
 }
