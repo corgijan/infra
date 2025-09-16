@@ -1,69 +1,45 @@
 version: '3.8'
 
+networks:
+  monitoring:
+    driver: bridge
+
+volumes:
+  prometheus_data: {}
+
 services:
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    restart: unless-stopped
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+    expose:
+      - 9100
+    networks:
+      - monitoring
+
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
-    ports:
-      - "9090:9090"
     restart: unless-stopped
     volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus_data:/prometheus
-    command: >
-      --config.file=/etc/prometheus/prometheus.yml
-    entrypoint: >
-      /bin/sh -c "
-      printf '
-      global:
-        scrape_interval: 15s
-
-      scrape_configs:
-        - job_name: \"node\"
-          static_configs:
-            - targets: [\"node_exporter_proxy:80\"]
-      ' > /etc/prometheus/prometheus.yml &&
-      exec /bin/prometheus --config.file=/etc/prometheus/prometheus.yml
-      "
-
-  node_exporter:
-    image: quay.io/prometheus/node-exporter:latest
-    container_name: node_exporter
     command:
-      - '--path.rootfs=/host'
-      - '--web.listen-address=:9101'
-    pid: host
-    restart: unless-stopped
-    volumes:
-      - '/:/host:ro,rslave'
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
     expose:
-      - "9101"   # only expose internally
-
-  node_exporter_proxy:
-    image: nginx:alpine
-    container_name: node_exporter_proxy
-    depends_on:
-      - node_exporter
-    ports:
-      - "9100:80"
-    restart: unless-stopped
-    command: >
-      /bin/sh -c "
-      apk add --no-cache apache2-utils &&
-      htpasswd -bBc /etc/nginx/.htpasswd exporter secret &&
-      printf '
-      events {}
-      http {
-        server {
-          listen 80;
-          location / {
-            proxy_pass http://node_exporter:9101;
-            auth_basic \"Restricted\";
-            auth_basic_user_file /etc/nginx/.htpasswd;
-          }
-        }
-      }' > /etc/nginx/nginx.conf &&
-      nginx -g 'daemon off;'
-      "
-
-volumes:
-  prometheus_data:
+      - 9090
+    networks:
+      - monitoring
