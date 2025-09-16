@@ -23,38 +23,6 @@ corgi.wiki {
 }
 
 www.corgi.wiki {
-	handle_path /.within.website/x/cmd/anubis/static/img/happy.webp {
-        rewrite * /happy.webp
-				root * /srv
-    		file_server
-    }
-	handle_path /.within.website/x/cmd/anubis/static/img/pensive.webp {
-        rewrite * /happy.webp
-				root * /srv
-    		file_server
-    }
-	handle_path /happy.webp {
-        rewrite * /happy.webp
-				root * /srv
-    		file_server
-    }
-	rate_limit {
-		distributed
-		zone static_example {
-			match {
-				method GET
-			}
-			key static
-			events 200
-			window 3s
-		}
-		zone dynamic_example {
-			key {remote_host}
-			events 200
-			window 3s
-		}
-		log_key
-	}
 	reverse_proxy localhost:8001
 }
 
