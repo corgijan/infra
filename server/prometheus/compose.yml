@@ -11,7 +11,6 @@ services:
       - prometheus_data:/prometheus
     command: >
       --config.file=/etc/prometheus/prometheus.yml
-    # Generate config inline at startup
     entrypoint: >
       /bin/sh -c "
       printf '
@@ -31,11 +30,13 @@ services:
     container_name: node_exporter
     command:
       - '--path.rootfs=/host'
-    network_mode: host
+      - '--web.listen-address=:9101'
     pid: host
     restart: unless-stopped
     volumes:
       - '/:/host:ro,rslave'
+    expose:
+      - "9101"   # only expose internally
 
   node_exporter_proxy:
     image: nginx:alpine
@@ -55,7 +56,7 @@ services:
         server {
           listen 80;
           location / {
-            proxy_pass http://host.docker.internal:9100;
+            proxy_pass http://node_exporter:9101;
             auth_basic \"Restricted\";
             auth_basic_user_file /etc/nginx/.htpasswd;
           }
