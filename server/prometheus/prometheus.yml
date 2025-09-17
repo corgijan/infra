@@ -16,3 +16,10 @@ scrape_configs:
     basic_auth:
       username: poppy
       password: PoppyRoot012
+      
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['node-exporter:8080']
+    basic_auth:
+      username: poppy
+      password: PoppyRoot012
