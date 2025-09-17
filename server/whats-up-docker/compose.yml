@@ -4,7 +4,7 @@ services:
     container_name: wud
     environment:
       - WUD_WATCHER_LOCAL_CRON=0 6 * * *
-      - WUD_TRIGER_DOCKER_LOCAL_AUTO=false
+      - WUD_TRIGGER_DOCKER_LOCAL_AUTO=false
       - WUD_AUTH_BASIC_MY_USER=poppy
       - WUD_AUTH_BASIC_MY_HASH=$$apr1$$8/xp9bux$$.9a0SV34Rey7i56xdymek.
     ports:
