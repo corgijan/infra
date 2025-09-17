@@ -8,6 +8,6 @@ services:
       - WUD_AUTH_BASIC_MY_USER=poppy
       - WUD_AUTH_BASIC_MY_HASH=$$apr1$$8/xp9bux$$.9a0SV34Rey7i56xdymek.
     ports:
-      - 30000:3000
+      - 3000:3000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
