@@ -79,3 +79,10 @@ s3.corgijan.dev {
 s3web.corgijan.dev {
         reverse_proxy maine:9001
 }
+deploy.corgijan.dev {
+         basic_auth {
+                Poppy $2a$14$ugW70CVseb2Gb0Zg2gqlo.OtTjFRERWFIXhY2RuM95hn/VoL/RT8.
+        }
+        reverse_proxy maine:3000
+}
+
