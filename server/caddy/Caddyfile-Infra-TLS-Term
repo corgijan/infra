@@ -81,7 +81,7 @@ s3web.corgijan.dev {
 }
 deploy.corgijan.dev {
          basic_auth {
-                Poppy $2a$14$ugW70CVseb2Gb0Zg2gqlo.OtTjFRERWFIXhY2RuM95hn/VoL/RT8.
+	        jan $2a$14$TJ4il5xD1NuuxKELF8jwXOyOytu.eVgcccGj4vuAA6mVSES/IJrv.
         }
         reverse_proxy maine:3000
 }
