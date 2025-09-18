@@ -22,7 +22,7 @@ services:
         #command: caddy reverse-proxy --from :80 --to http://localhost:8001
         restart: always
         volumes:
-          - ./Caddyfile-Infra-TLS-Term:/etc/caddy/Caddyfile:z
+          - ./infra.Caddyfile:/etc/caddy/Caddyfile:z
           - ./caddy_data:/data:z
           - ./happy.webp:/srv/happy.webp:ro
 
