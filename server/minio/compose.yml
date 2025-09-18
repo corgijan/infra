@@ -7,8 +7,8 @@ services:
       - "127.0.0.1:9000:9000"
       - "127.0.0.1:9001:9001"
     environment:
-      MINIO_ROOT_USER: ROOTNAME
-      MINIO_ROOT_PASSWORD: CHANGEME123
+      MINIO_ROOT_USER: poppy
+      MINIO_ROOT_PASSWORD: PoppyRoot012
     volumes:
       - ~/minio/data:/data
     command: server /data --console-address ":9001"
