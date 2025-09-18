@@ -73,3 +73,9 @@ auth.corgijan.dev {
 n8n.corgijan.dev {
         reverse_proxy maine:5678
 }
+s3.corgijan.dev {
+        reverse_proxy maine:9000
+}
+s3web.corgijan.dev {
+        reverse_proxy maine:9001
+}
