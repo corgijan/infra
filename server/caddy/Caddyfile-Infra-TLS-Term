@@ -79,6 +79,9 @@ s3.corgijan.dev {
 s3web.corgijan.dev {
         reverse_proxy maine:9001
 }
+prometheusmaine.corgijan.dev {
+        reverse_proxy maine:9090
+}
 deploy.corgijan.dev {
          basic_auth {
 	        jan $2a$14$TJ4il5xD1NuuxKELF8jwXOyOytu.eVgcccGj4vuAA6mVSES/IJrv.
