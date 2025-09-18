@@ -2,7 +2,8 @@ version: '3.8'
 
 services:
   minio:
-        container_name: minio
+    container_name: minio
+    image: minio/minio:latest
     ports:
       - "127.0.0.1:9000:9000"
       - "127.0.0.1:9001:9001"
