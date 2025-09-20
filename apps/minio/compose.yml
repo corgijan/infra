@@ -3,7 +3,7 @@ version: '3.8'
 services:
   minio:
     container_name: minio
-    image: minio/minio:latest
+    image: minio/minio@sha256:a1ea29fa28355559ef137d71fc570e508a214ec84ff8083e39bc5428980b015e
     ports:
       - "9000:9000"
       - "9001:9001"
