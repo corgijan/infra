@@ -1,3 +1,17 @@
+{
+    servers :22222 {
+        protocol {
+            allow tcp
+        }
+        handler proxy {
+            upstreams vm-1:22
+        }
+    }
+}
+andy.corgijan.dev {
+        reverse_proxy maine:31002
+}
+
 cloud.corgijan.dev {
         reverse_proxy maine:31002
 }
