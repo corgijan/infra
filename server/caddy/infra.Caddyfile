@@ -11,8 +11,11 @@
 }
 
 
-andy.corgijan.dev {
-        reverse_proxy maine:31002
+andy.website.corgijan.dev {
+        reverse_proxy vm-1:80
+}
+mainecockpit.corgijan.dev {
+        reverse_proxy maine:9091
 }
 
 cloud.corgijan.dev {
