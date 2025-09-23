@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-    reverse-proxy-tls:
+    caddy-ingress:
         #image: docker.io/library/caddy:alpine
         build: .
         network_mode: host
