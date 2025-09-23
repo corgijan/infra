@@ -14,17 +14,26 @@ andy.website.corgijan.dev {
         reverse_proxy vm-1:80
 }
 mainecockpit.corgijan.dev {
-		# also need config file configured to allow all origins and disable tls
-		basic_auth {
-	        jan $2a$14$TJ4il5xD1NuuxKELF8jwXOyOytu.eVgcccGj4vuAA6mVSES/IJrv.
-        }
+	# Root page requires authentication
+	route / {
+		basicauth {
+			jan $2a$14$TJ4il5xD1NuuxKELF8jwXOyOytu.eVgcccGj4vuAA6mVSES/IJrv.
+		}
 		reverse_proxy maine:9091 {
-  		transport http {
-            tls_insecure_skip_verify
-        }
-    }
-}
+			transport http {
+				tls_insecure_skip_verify
+			}
+		}
+	}
 
+	# Unauthenticated for /cockpit/*
+	route /cockpit/* {
+		reverse_proxy maine:9091 {
+			transport http {
+				tls_insecure_skip_verify
+			}
+		}
+	}
 cloud.corgijan.dev {
 		
         reverse_proxy maine:31002
