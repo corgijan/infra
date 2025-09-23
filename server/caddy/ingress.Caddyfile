@@ -14,6 +14,7 @@ andy.website.corgijan.dev {
         reverse_proxy vm-1:80
 }
 mainecockpit.corgijan.dev {
+		# also need config file configured to allow all origins and disable tls
 		basic_auth {
 	        jan $2a$14$TJ4il5xD1NuuxKELF8jwXOyOytu.eVgcccGj4vuAA6mVSES/IJrv.
         }
