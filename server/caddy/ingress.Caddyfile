@@ -13,6 +13,7 @@
 andy.website.corgijan.dev {
         reverse_proxy vm-1:80
 }
+
 mainecockpit.corgijan.dev {
 	# Root page requires authentication
 	route / {
@@ -34,6 +35,7 @@ mainecockpit.corgijan.dev {
 			}
 		}
 	}
+}
 cloud.corgijan.dev {
 		
         reverse_proxy maine:31002
