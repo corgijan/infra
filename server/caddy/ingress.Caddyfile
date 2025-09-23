@@ -15,13 +15,9 @@ andy.website.corgijan.dev {
 }
 mainecockpit.corgijan.dev {
 		reverse_proxy maine:9091 {
-        transport http {
-            versions h2c 1.1
+  		transport http {
+            tls_insecure_skip_verify
         }
-        header_up Host {host}
-        header_up X-Real-IP {remote_host}
-        header_up X-Forwarded-For {remote_host}
-        header_up X-Forwarded-Proto {scheme}
     }
 }
 
