@@ -14,6 +14,9 @@ andy.website.corgijan.dev {
         reverse_proxy vm-1:80
 }
 mainecockpit.corgijan.dev {
+		basic_auth {
+	        jan $2a$14$TJ4il5xD1NuuxKELF8jwXOyOytu.eVgcccGj4vuAA6mVSES/IJrv.
+        }
 		reverse_proxy maine:9091 {
   		transport http {
             tls_insecure_skip_verify
@@ -22,6 +25,7 @@ mainecockpit.corgijan.dev {
 }
 
 cloud.corgijan.dev {
+		
         reverse_proxy maine:31002
 }
 
@@ -83,9 +87,6 @@ test.corgijan.dev {
 
 jan.vaor.in {
         redir https://www.corgijan.dev/aboutme
-}
-geburtstag.von.jan.vaor.in {
-        redir https://docs.google.com/forms/d/e/1FAIpQLSfyMC0niDIoTsn9_2qEymav0NZNyoBOBL2MnLodYREuyNSZHw/viewform?usp=header
 }
 website.timon.vaor.in {
         reverse_proxy maine:8011
