@@ -18,7 +18,7 @@ mainecockpit.corgijan.dev {
 
     # WebSocket / cockpit path: allow unauthenticated
     @ws {
-        path /cockpit/*
+        path /*
     }
     handle @ws {
         reverse_proxy maine:9091 {
