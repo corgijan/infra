@@ -15,7 +15,15 @@ andy.website.corgijan.dev {
         reverse_proxy vm-1:80
 }
 mainecockpit.corgijan.dev {
-        reverse_proxy maine:9091
+		reverse_proxy maine:9091 {
+        transport http {
+            versions h2c 1.1
+        }
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
 }
 
 cloud.corgijan.dev {
