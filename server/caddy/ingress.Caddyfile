@@ -36,8 +36,8 @@ mainecockpit.corgijan.dev {
 		}
 	}
 }
-cloud.corgijan.dev {
-		
+
+cloud.corgijan.dev {	
         reverse_proxy maine:31002
 }
 
