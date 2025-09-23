@@ -15,26 +15,30 @@ andy.website.corgijan.dev {
 }
 
 mainecockpit.corgijan.dev {
-	# Root page requires authentication
-	route / {
-		basicauth {
-			jan $2a$14$TJ4il5xD1NuuxKELF8jwXOyOytu.eVgcccGj4vuAA6mVSES/IJrv.
-		}
-		reverse_proxy maine:9091 {
-			transport http {
-				tls_insecure_skip_verify
-			}
-		}
-	}
 
-	# Unauthenticated for /cockpit/*
-	route /cockpit/* {
-		reverse_proxy maine:9091 {
-			transport http {
-				tls_insecure_skip_verify
-			}
-		}
-	}
+    # WebSocket / cockpit path: allow unauthenticated
+    @ws {
+        path /cockpit/*
+    }
+    handle @ws {
+        reverse_proxy maine:9091 {
+            transport http {
+                tls_insecure_skip_verify
+            }
+        }
+    }
+
+    # All other requests: require authentication
+    handle {
+        basicauth {
+            jan $2a$14$TJ4il5xD1NuuxKELF8jwXOyOytu.eVgcccGj4vuAA6mVSES/IJrv.
+        }
+        reverse_proxy maine:9091 {
+            transport http {
+                tls_insecure_skip_verify
+            }
+        }
+    }
 }
 
 cloud.corgijan.dev {	
