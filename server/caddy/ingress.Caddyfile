@@ -2,8 +2,7 @@
 {
 	layer4 {
 		:4022 {
-			@secure tls
-			route @secure {
+			route {
 				proxy vm-1:22
 			}
 		}
