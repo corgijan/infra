@@ -9,9 +9,6 @@
 	}
 }
 
-immich.corgijan.dev
-
-
 immich.corgijan.dev {
         reverse_proxy maine:2283
 }
