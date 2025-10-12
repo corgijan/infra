@@ -9,10 +9,17 @@
 	}
 }
 
+immich.corgijan.dev
 
-andy.website.corgijan.dev {
-        reverse_proxy vm-1:80
+
+immich.corgijan.dev {
+        reverse_proxy maine:2283
 }
+
+nopaper.corgijan.dev {
+        reverse_proxy maine:31001
+}
+
 
 mainecockpit.corgijan.dev {
 
