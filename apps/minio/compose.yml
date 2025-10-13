@@ -11,5 +11,5 @@ services:
       MINIO_ROOT_USER: poppy
       MINIO_ROOT_PASSWORD: PoppyRoot012
     volumes:
-      - ~/minio/data:/data
+      - /media/maine/hdd1/minio:/data
     command: server /data --console-address ":9001"
