@@ -6,19 +6,19 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/maine/infra/owncloud/files
+      device: /media/maine/hdd1/owncloud/files
   mysql:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/maine/infra/owncloud/mysql
+      device: /media/maine/hdd1/owncloud/mysql
   redis:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/maine/infra/owncloud/redis
+      device: /media/maine/hdd1/owncloud/redis
 
 services:
   owncloud:
