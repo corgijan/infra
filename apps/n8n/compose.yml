@@ -11,6 +11,7 @@ services:
       - WEBHOOK_URL=https://n8n.corgijan.dev/
       - N8N_PROTOCOL=https
       - N8N_ENCRYPTION_KEY=BxOXPt9zFEAh2lH9zTrq0/2c9CunMgx6
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false
     volumes:
       - ./data:/home/node/.n8n
       -  ./local-files:/files
