@@ -12,6 +12,9 @@
 owncloud.corgijan.dev {
         reverse_proxy maine:3333
 }
+altn8n.corgijan.dev {
+        reverse_proxy maine:5679
+}
 
 immich.corgijan.dev {
         reverse_proxy maine:2283
