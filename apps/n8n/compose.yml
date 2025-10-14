@@ -16,3 +16,4 @@ services:
       - ./data:/home/node/.n8n
       -  ./local-files:/files
     restart: unless-stopped
+    user: "root"
