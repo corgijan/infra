@@ -127,6 +127,12 @@ s3.corgijan.dev {
 s3web.corgijan.dev {
         reverse_proxy maine:9001
 }
+s3oregon.corgijan.dev {
+        reverse_proxy 127.0.0.1:9000
+}
+s3oregonweb.corgijan.dev {
+        reverse_proxy 127.0.0.1:9001
+}
 prometheusmaine.corgijan.dev {
         reverse_proxy maine:9090
 }
