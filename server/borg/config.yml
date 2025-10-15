@@ -1,0 +1,18 @@
+#/etc/borgmatic/config.yaml
+location:
+  source_directories:
+    - "/media/maine/hdd1"
+    - "/var/lib/rancher/k3s/storage"
+    - "/home/maine/infra"
+  repositories:
+    - "/media/maine/HDD2/borg-repo"
+
+storage:
+  encryption_passphrase: "cassini"
+  compression: zstd,9
+
+retention:
+  keep_daily: 7
+  keep_weekly: 4
+  keep_monthly: 6
+  keep_yearly: 6
