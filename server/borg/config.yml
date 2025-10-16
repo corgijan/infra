@@ -6,7 +6,7 @@ location:
     - "/home/maine/infra"
   repositories:
     - "/media/maine/HDD2/borg-repo"
-    - "ssh://root@corgi.wiki:/root/backups-maine/borg-repo"
+    - "ssh://root@corgijan.dev/root/backups-maine/borg-repo"
 
 storage:
   encryption_passphrase: "cassini"
