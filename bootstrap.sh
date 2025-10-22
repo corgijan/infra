@@ -14,6 +14,7 @@ if ! command_exists ansible; then
     exit 1
 fi
 
+
 # Clone .config repository
 #echo "Cloning .config repository..."
 #git clone <url_of_config_repo.git> ~/.config
