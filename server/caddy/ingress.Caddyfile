@@ -8,7 +8,9 @@
 		}
 	}
 }
-
+andy.website.corgijan.dev {
+        reverse_proxy vm-1:80
+}
 owncloud.corgijan.dev {
         reverse_proxy maine:3333
 }
