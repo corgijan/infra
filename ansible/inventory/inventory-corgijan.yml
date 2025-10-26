@@ -1,0 +1,14 @@
+---
+all:
+  vars:
+    ansible_user: jan
+    ansible_python_interpreter: /usr/bin/python3
+
+  hosts:
+    corgijandev:
+      ansible_shell_executable: /bin/bash
+      ansible_host: corgijan.dev
+      ansible_remote_tmp: /tmp/.ansible-${USER}/tmp
+  
+  roles:
+    - hardening

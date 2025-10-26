@@ -1,0 +1,6 @@
+---
+# Default variables for hardening role
+deploy_user: "jan"
+ssh_port: 22
+docker_users:
+  - "{{ deploy_user }}"

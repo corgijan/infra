@@ -1,0 +1,11 @@
+---
+all:
+  vars:
+    ansible_user: jan
+    ansible_python_interpreter: /usr/bin/python3
+
+  hosts:
+    cwiki:
+      ansible_host: www.heym-of-hassellyn.com
+      ansible_remote_tmp: /tmp/.ansible-${USER}/tmp
+      ansible_shell_executable: /bin/bash

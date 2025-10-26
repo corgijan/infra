@@ -1,0 +1,10 @@
+---
+- name: restart journald
+  service:
+    name: systemd-journald
+    state: restarted
+
+- name: restart ssh
+  service:
+    name: ssh
+    state: restarted

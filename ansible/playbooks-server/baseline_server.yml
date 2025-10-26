@@ -1,0 +1,274 @@
+---
+- name: Baseline Debian Server Setup
+  hosts: all
+  become: yes
+  vars:
+    # Customize these variables
+    deploy_user: "jan"
+    docker_users:
+      - "{{ deploy_user }}"
+    ssh_port: 22
+    
+  tasks:
+    # System Updates
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    # - name: Upgrade all packages
+    #   apt:
+    #     upgrade: dist
+    #     autoremove: yes
+    #     autoclean: yes
+
+    # Basic Security
+    - name: Install fail2ban
+      apt:
+        name: fail2ban
+        state: present
+
+    - name: Ensure fail2ban is started and enabled
+      systemd:
+        name: fail2ban
+        state: started
+        enabled: yes
+        daemon_reload: yes
+      when: not ansible_check_mode
+
+    - name: Install ufw firewall
+      apt:
+        name: ufw
+        state: present
+
+    - name: Allow SSH through firewall
+      ufw:
+        rule: allow
+        port: '22'
+        proto: tcp
+
+    - name: Allow HTTP
+      ufw:
+        rule: allow
+        port: '80'
+        proto: tcp
+
+    - name: Allow HTTPS
+      ufw:
+        rule: allow
+        port: '443'
+        proto: tcp
+
+    - name: Enable UFW
+      ufw:
+        state: enabled
+
+    # Essential Tools
+    - name: Install essential packages
+      apt:
+        name:
+          - curl
+          - wget
+          - git
+          - htop
+          - tree
+          - unzip
+          - vim
+          - build-essential
+          - software-properties-common
+          - apt-transport-https
+          - ca-certificates
+          - gnupg
+          - lsb-release
+          - net-tools
+          - dnsutils
+          - tcpdump
+          - nmap
+          - iptables-persistent
+          - bat 
+          - fish 
+          - neovim
+        state: present
+
+    # Security Tools
+    - name: Install security packages
+      apt:
+        name:
+          - aide
+          - rkhunter
+          - chkrootkit
+          - lynis
+          - unattended-upgrades
+          - apt-listchanges
+          - needrestart
+        state: present
+
+    - name: Configure unattended-upgrades
+      copy:
+        dest: /etc/apt/apt.conf.d/50unattended-upgrades
+        content: |
+          Unattended-Upgrade::Allowed-Origins {
+              "${distro_id}:${distro_codename}-security";
+              "${distro_id}ESMApps:${distro_codename}-apps-security";
+              "${distro_id}ESM:${distro_codename}-infra-security";
+          };
+          Unattended-Upgrade::AutoFixInterruptedDpkg "true";
+          Unattended-Upgrade::MinimalSteps "true";
+          Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";
+          Unattended-Upgrade::Remove-Unused-Dependencies "true";
+          Unattended-Upgrade::Automatic-Reboot "false";
+
+    - name: Enable automatic security updates
+      copy:
+        dest: /etc/apt/apt.conf.d/20auto-upgrades
+        content: |
+          APT::Periodic::Update-Package-Lists "1";
+          APT::Periodic::Download-Upgradeable-Packages "1";
+          APT::Periodic::AutocleanInterval "7";
+          APT::Periodic::Unattended-Upgrade "1";
+
+    - name: Initialize AIDE database
+      command: aideinit
+      args:
+        creates: /var/lib/aide/aide.db.new
+      async: 300
+      poll: 0
+
+
+    - name: Set Neovim as default editor
+      alternatives:
+        name: editor
+        path: /usr/bin/nvim
+
+
+    - name: Set Fish as default shell
+      command: chsh -s /usr/bin/fish
+      become: yes
+      changed_when: false
+
+
+    - name: Start and enable Docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Add users to docker group
+      user:
+        name: "{{ item }}"
+        groups: docker
+        append: yes
+      loop: "{{ docker_users }}"
+      when: item != "root"
+
+    # Create jan user
+    - name: Create jan user with sudo access
+      user:
+        name: "{{ deploy_user }}"
+        shell: /usr/bin/fish
+        groups: sudo,docker
+        append: yes
+        create_home: yes
+        password: "{{ 'poppy-welsh-corgi-root' | password_hash('sha512') }}"
+
+    - name: Allow jan to use sudo without password
+      lineinfile:
+        path: /etc/sudoers.d/jan
+        line: 'jan ALL=(ALL) NOPASSWD:ALL'
+        create: yes
+        mode: '0440'
+        validate: 'visudo -cf %s'
+
+    - name: Set up authorized keys for jan user
+      authorized_key:
+        user: "{{ deploy_user }}"
+        key: "{{ lookup('file', '~/.ssh/id_ed25519.pub') }}"
+        state: present
+      ignore_errors: yes
+
+    # SSH Hardening
+    - name: Configure SSH - Disable root login
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^\s*#?\s*PermitRootLogin\s'
+        line: 'PermitRootLogin no'
+      notify: restart ssh
+
+    - name: Configure SSH - Disable password authentication
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^\s*#?\s*PasswordAuthentication\s'
+        line: 'PasswordAuthentication no'
+      notify: restart ssh
+
+    - name: Configure SSH - Disable empty passwords
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^\s*#?\s*PermitEmptyPasswords\s'
+        line: 'PermitEmptyPasswords no'
+      notify: restart ssh
+
+    - name: Configure SSH - Set max auth tries
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^\s*#?\s*MaxAuthTries\s'
+        line: 'MaxAuthTries 3'
+      notify: restart ssh
+
+    - name: Configure SSH - Disable X11 forwarding
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^\s*#?\s*X11Forwarding\s'
+        line: 'X11Forwarding no'
+      notify: restart ssh
+
+    - name: Configure SSH - Set client alive interval
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^\s*#?\s*ClientAliveInterval\s'
+        line: 'ClientAliveInterval 300'
+      notify: restart ssh
+
+    - name: Configure SSH - Set client alive count max
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^\s*#?\s*ClientAliveCountMax\s'
+        line: 'ClientAliveCountMax 2'
+      notify: restart ssh
+
+    - name: Configure SSH - Use protocol 2 only
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^\s*#?\s*Protocol\s'
+        line: 'Protocol 2'
+      notify: restart ssh
+
+    - name: Configure SSH - Disable host-based authentication
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^\s*#?\s*HostbasedAuthentication\s'
+        line: 'HostbasedAuthentication no'
+      notify: restart ssh
+
+    # System Configuration
+    - name: Set timezone to Berlin
+      timezone:
+        name: Europe/Berlin
+
+    - name: Configure journald log retention
+      lineinfile:
+        path: /etc/systemd/journald.conf
+        regexp: '^#?SystemMaxUse='
+        line: 'SystemMaxUse=500M'
+      notify: restart journald
+
+  handlers:
+    - name: restart journald
+      service:
+        name: systemd-journald
+        state: restarted
+
+    - name: restart ssh
+      service:
+        name: ssh
+        state: restarted
