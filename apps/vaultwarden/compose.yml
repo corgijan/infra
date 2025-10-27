@@ -5,7 +5,7 @@ services:
     container_name: vaultwarden
     restart: unless-stopped
     ports:
-     - 9445:80 #map any custom port to use (replace 9445 not 80)
+     - 5679:80 #map any custom port to use (replace 9445 not 80)
     volumes:
      - ./data:/data:rw
     environment:
