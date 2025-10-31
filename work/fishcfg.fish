@@ -4,6 +4,7 @@ end
 source "$HOME/.cargo/env.fish"
 export TERM="xterm-256color"
 
+
 export PATH="/opt/homebrew/bin:$PATH"
 export EDITOR=nvim
 fish_vi_key_bindings
