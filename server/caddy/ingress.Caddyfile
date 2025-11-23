@@ -110,6 +110,13 @@ vpn.corgijan.dev {
 test.corgijan.dev {
         respond "hello there"
 }
+timon.vaor.in {
+        redir https://diabetes-praxis-muenster.de/dvteam/timon-vaorin/
+}
+
+imposter.corgijan.dev{
+        reverse_proxy localhost:5011
+}
 
 jan.vaor.in {
         redir https://www.corgijan.dev/aboutme
