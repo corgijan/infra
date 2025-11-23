@@ -114,7 +114,7 @@ timon.vaor.in {
         redir https://diabetes-praxis-muenster.de/dvteam/timon-vaorin/
 }
 
-imposter.corgijan.dev{
+imposter.corgijan.dev {
         reverse_proxy localhost:5011
 }
 
