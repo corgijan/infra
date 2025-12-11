@@ -113,6 +113,9 @@ test.corgijan.dev {
 timon.vaor.in {
         redir https://diabetes-praxis-muenster.de/dvteam/timon-vaorin/
 }
+ulrich.vaor.in {
+        redir https://www.kirche-iserlohn.de/wp-content/uploads/2023/04/Ulrich-Vaorin-scaled-e1682757323868.jpg
+}
 
 imposter.corgijan.dev {
         reverse_proxy localhost:5011
